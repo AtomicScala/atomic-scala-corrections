@@ -1,0 +1,3204 @@
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="Microsoft Word 15 (filtered)" name="Generator"/>
+<title>Atomic Scala Version 1.1</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Helvetica;
+	panose-1:2 11 5 4 2 2 2 2 2 4;}
+@font-face
+	{font-family:Courier;
+	panose-1:2 7 4 9 2 2 5 2 4 4;}
+@font-face
+	{font-family:"Tms Rmn";
+	panose-1:2 2 6 3 4 5 5 2 3 4;}
+@font-face
+	{font-family:Helv;
+	panose-1:2 11 6 4 2 2 2 3 2 4;}
+@font-face
+	{font-family:"New York";
+	panose-1:2 4 5 3 6 5 6 2 3 4;}
+@font-face
+	{font-family:System;
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"MS Mincho";
+	panose-1:2 2 6 9 4 2 5 8 3 4;}
+@font-face
+	{font-family:Batang;
+	panose-1:2 3 6 0 0 1 1 1 1 1;}
+@font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:PMingLiU;
+	panose-1:2 2 5 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"MS Gothic";
+	panose-1:2 11 6 9 7 2 5 8 2 4;}
+@font-face
+	{font-family:Dotum;
+	panose-1:2 11 6 0 0 1 1 1 1 1;}
+@font-face
+	{font-family:SimHei;
+	panose-1:2 1 6 9 6 1 1 1 1 1;}
+@font-face
+	{font-family:MingLiU;
+	panose-1:2 2 5 9 0 0 0 0 0 0;}
+@font-face
+	{font-family:Mincho;
+	panose-1:2 2 6 9 4 3 5 8 3 5;}
+@font-face
+	{font-family:Gulim;
+	panose-1:2 11 6 0 0 1 1 1 1 1;}
+@font-face
+	{font-family:Century;
+	panose-1:2 4 6 4 5 5 5 2 3 4;}
+@font-face
+	{font-family:"Angsana New";
+	panose-1:2 2 6 3 5 4 5 2 3 4;}
+@font-face
+	{font-family:"Cordia New";
+	panose-1:2 11 3 4 2 2 2 2 2 4;}
+@font-face
+	{font-family:Mangal;
+	panose-1:2 4 5 3 5 2 3 3 2 2;}
+@font-face
+	{font-family:Latha;
+	panose-1:2 11 6 4 2 2 2 2 2 4;}
+@font-face
+	{font-family:Sylfaen;
+	panose-1:1 10 5 2 5 3 6 3 3 3;}
+@font-face
+	{font-family:Vrinda;
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:Raavi;
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:Shruti;
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:Sendnya;
+	panose-1:0 0 4 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:Gautami;
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:Tunga;
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:"Estrangelo Edessa";
+	panose-1:3 8 6 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:"Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;}
+@font-face
+	{font-family:"Calibri Light";
+	panose-1:2 15 3 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Segoe UI";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:"Caecilia LT Roman";
+	panose-1:2 0 5 3 0 0 0 2 0 4;}
+@font-face
+	{font-family:Georgia;
+	panose-1:2 4 5 2 5 4 5 2 3 3;}
+@font-face
+	{font-family:DicotBold;
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:Consolas;
+	panose-1:2 11 6 9 2 2 4 3 2 4;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Caecilia LT Roman";
+	color:black;}
+h1
+	{mso-style-link:"Heading 1 Char";
+	margin-top:30.0pt;
+	margin-right:0in;
+	margin-bottom:12.0pt;
+	margin-left:-1.45pt;
+	text-indent:0;
+	line-height:36.0pt;
+	page-break-after:avoid;
+	font-size:36.0pt;
+	font-family:DicotBold;
+	color:black;
+	font-weight:normal;}
+h2
+	{mso-style-link:"Heading 2 Char";
+	margin-top:.25in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	line-height:24.0pt;
+	page-break-after:avoid;
+	font-size:24.0pt;
+	font-family:DicotBold;
+	color:black;
+	letter-spacing:.4pt;
+	font-weight:normal;}
+h3
+	{margin-top:14.0pt;
+	margin-right:0in;
+	margin-bottom:4.0pt;
+	margin-left:0in;
+	line-height:18.0pt;
+	font-size:18.0pt;
+	font-family:DicotBold;
+	color:black;
+	font-weight:bold;}
+h4
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:2.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Caecilia LT Roman";
+	color:black;
+	font-weight:bold;}
+h5
+	{margin-top:11.0pt;
+	margin-right:0in;
+	margin-bottom:2.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Caecilia LT Roman";
+	color:black;
+	font-weight:bold;}
+h6
+	{margin-top:10.0pt;
+	margin-right:0in;
+	margin-bottom:2.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:10.0pt;
+	font-family:"Caecilia LT Roman";
+	color:black;
+	font-weight:bold;}
+p.MsoIndex1, li.MsoIndex1, div.MsoIndex1
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:11.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-11.0pt;
+	font-size:11.0pt;
+	font-family:"Caecilia LT Roman";
+	color:black;}
+p.MsoIndex2, li.MsoIndex2, div.MsoIndex2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:22.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-11.0pt;
+	font-size:11.0pt;
+	font-family:"Caecilia LT Roman";
+	color:black;}
+p.MsoIndex3, li.MsoIndex3, div.MsoIndex3
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:33.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-11.0pt;
+	font-size:11.0pt;
+	font-family:"Caecilia LT Roman";
+	color:black;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-link:"TOC 1 Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:5.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Caecilia LT Roman";
+	color:black;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:5.0pt;
+	margin-left:11.0pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:5.0pt;
+	margin-left:22.0pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:5.0pt;
+	margin-left:33.0pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:5.0pt;
+	margin-left:44.0pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:5.0pt;
+	margin-left:55.0pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:5.0pt;
+	margin-left:66.0pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:5.0pt;
+	margin-left:77.0pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:5.0pt;
+	margin-left:88.0pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+	{mso-style-link:"Comment Text Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Caecilia LT Roman";
+	color:black;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"Header Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Caecilia LT Roman";
+	color:black;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"Footer Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Caecilia LT Roman";
+	color:black;}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{margin-top:24.0pt;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:36.0pt;
+	font-family:"Caecilia LT Roman";
+	color:black;
+	font-weight:bold;}
+p.MsoSubtitle, li.MsoSubtitle, div.MsoSubtitle
+	{margin-top:.25in;
+	margin-right:0in;
+	margin-bottom:4.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:24.0pt;
+	font-family:"Caecilia LT Roman";
+	color:#666666;
+	font-style:italic;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+p
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoCommentSubject, li.MsoCommentSubject, div.MsoCommentSubject
+	{mso-style-link:"Comment Subject Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Caecilia LT Roman";
+	color:black;
+	font-weight:bold;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"Balloon Text Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	color:black;}
+p.MsoRMPane, li.MsoRMPane, div.MsoRMPane
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Caecilia LT Roman";
+	color:#222222;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{mso-style-link:"List Paragraph Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:58.5pt;
+	margin-bottom:.0001pt;
+	text-indent:-22.5pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Caecilia LT Roman";
+	color:black;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{mso-style-link:"List Paragraph Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:58.5pt;
+	margin-bottom:.0001pt;
+	text-indent:-22.5pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Caecilia LT Roman";
+	color:black;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{mso-style-link:"List Paragraph Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:58.5pt;
+	margin-bottom:.0001pt;
+	text-indent:-22.5pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Caecilia LT Roman";
+	color:black;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{mso-style-link:"List Paragraph Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:58.5pt;
+	margin-bottom:.0001pt;
+	text-indent:-22.5pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Caecilia LT Roman";
+	color:black;}
+p.MsoQuote, li.MsoQuote, div.MsoQuote
+	{mso-style-link:"Quote Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.3in;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:14.0pt;
+	font-family:"Caecilia LT Roman";
+	color:black;
+	font-style:italic;}
+p.MsoIntenseQuote, li.MsoIntenseQuote, div.MsoIntenseQuote
+	{mso-style-link:"Intense Quote Char";
+	margin-top:10.0pt;
+	margin-right:.65in;
+	margin-bottom:14.0pt;
+	margin-left:.65in;
+	line-height:115%;
+	border:none;
+	padding:0in;
+	font-size:11.0pt;
+	font-family:"Caecilia LT Roman";
+	color:#4F81BD;
+	font-weight:bold;
+	font-style:italic;}
+span.MsoSubtleEmphasis
+	{color:gray;
+	font-style:italic;}
+span.MsoIntenseEmphasis
+	{color:#4F81BD;
+	font-weight:bold;
+	font-style:italic;}
+span.MsoSubtleReference
+	{font-variant:small-caps;
+	color:#C0504D;
+	text-decoration:underline;}
+span.MsoIntenseReference
+	{font-variant:small-caps;
+	color:#C0504D;
+	letter-spacing:.25pt;
+	font-weight:bold;
+	text-decoration:underline;}
+span.MsoBookTitle
+	{font-variant:small-caps;
+	letter-spacing:.25pt;}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-link:"Balloon Text";
+	font-family:"Tahoma","sans-serif";
+	color:black;}
+span.HeaderChar
+	{mso-style-name:"Header Char";
+	mso-style-link:Header;
+	font-family:"Georgia","serif";
+	color:black;}
+span.FooterChar
+	{mso-style-name:"Footer Char";
+	mso-style-link:Footer;
+	font-family:"Georgia","serif";
+	color:black;}
+span.CommentTextChar
+	{mso-style-name:"Comment Text Char";
+	mso-style-link:"Comment Text";
+	font-family:"Georgia","serif";
+	color:black;}
+span.CommentSubjectChar
+	{mso-style-name:"Comment Subject Char";
+	mso-style-link:"Comment Subject";
+	font-family:"Georgia","serif";
+	color:black;
+	font-weight:bold;}
+p.Code, li.Code, div.Code
+	{mso-style-name:Code;
+	mso-style-link:"Code Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.3in;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:Consolas;
+	color:black;}
+span.CodeChar
+	{mso-style-name:"Code Char";
+	mso-style-link:Code;
+	font-family:Consolas;
+	color:#222222;}
+p.AuthorNames, li.AuthorNames, div.AuthorNames
+	{mso-style-name:"Author Names";
+	mso-style-link:"Author Names Char";
+	margin-top:14.0pt;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	line-height:18.0pt;
+	font-size:18.0pt;
+	font-family:DicotBold;
+	color:black;
+	font-weight:bold;}
+p.BookSubtitle, li.BookSubtitle, div.BookSubtitle
+	{mso-style-name:"Book Subtitle";
+	mso-style-link:"Book Subtitle Char";
+	margin-top:.25in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	line-height:24.0pt;
+	page-break-after:avoid;
+	font-size:24.0pt;
+	font-family:DicotBold;
+	color:black;
+	letter-spacing:.4pt;}
+span.AuthorNamesChar
+	{mso-style-name:"Author Names Char";
+	mso-style-link:"Author Names";
+	font-family:"Verdana","sans-serif";
+	color:black;
+	font-weight:bold;}
+span.BookSubtitleChar
+	{mso-style-name:"Book Subtitle Char";
+	mso-style-link:"Book Subtitle";
+	font-family:"Verdana","sans-serif";
+	color:black;
+	font-weight:bold;}
+p.MainTitle, li.MainTitle, div.MainTitle
+	{mso-style-name:"Main Title";
+	mso-style-link:"Main Title Char";
+	margin-top:30.0pt;
+	margin-right:0in;
+	margin-bottom:12.0pt;
+	margin-left:-1.45pt;
+	text-indent:-.5in;
+	line-height:36.0pt;
+	page-break-after:avoid;
+	font-size:36.0pt;
+	font-family:DicotBold;
+	color:black;}
+p.Contents, li.Contents, div.Contents
+	{mso-style-name:Contents;
+	mso-style-link:"Contents Char";
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:12.0pt;
+	margin-left:.5in;
+	text-indent:-.5in;
+	page-break-after:avoid;
+	font-size:36.0pt;
+	font-family:DicotBold;
+	color:black;}
+span.ListParagraphChar
+	{mso-style-name:"List Paragraph Char";
+	mso-style-link:"List Paragraph";
+	font-family:"Caecilia LT Roman";
+	color:#222222;}
+span.MainTitleChar
+	{mso-style-name:"Main Title Char";
+	mso-style-link:"Main Title";
+	font-family:DicotBold;
+	color:#222222;}
+p.Toc, li.Toc, div.Toc
+	{mso-style-name:Toc;
+	mso-style-link:"Toc Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Caecilia LT Roman";
+	color:black;}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-link:"Heading 1";
+	font-family:DicotBold;
+	color:#222222;}
+span.ContentsChar
+	{mso-style-name:"Contents Char";
+	mso-style-link:Contents;
+	font-family:DicotBold;
+	color:#222222;}
+span.TOC1Char
+	{mso-style-name:"TOC 1 Char";
+	mso-style-link:"TOC 1";
+	font-family:"Georgia","serif";
+	color:black;}
+span.TocChar
+	{mso-style-name:"Toc Char";
+	mso-style-link:Toc;
+	font-family:"Georgia","serif";
+	color:black;}
+p.Firstpar, li.Firstpar, div.Firstpar
+	{mso-style-name:Firstpar;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Caecilia LT Roman";
+	color:black;
+	font-style:italic;}
+p.Exercise, li.Exercise, div.Exercise
+	{mso-style-name:Exercise;
+	margin-top:9.0pt;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:.25in;
+	text-indent:-.25in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Caecilia LT Roman";
+	color:black;}
+p.Bulleted, li.Bulleted, div.Bulleted
+	{mso-style-name:Bulleted;
+	mso-style-link:"Bulleted Char";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:29.5pt;
+	margin-bottom:.0001pt;
+	text-indent:-22.3pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Caecilia LT Roman";
+	color:black;}
+span.BulletedChar
+	{mso-style-name:"Bulleted Char";
+	mso-style-link:Bulleted;
+	font-family:"Caecilia LT Roman";
+	color:#222222;}
+span.QuoteChar
+	{mso-style-name:"Quote Char";
+	mso-style-link:Quote;
+	font-family:"Caecilia LT Roman";
+	color:black;
+	font-style:italic;}
+span.IntenseQuoteChar
+	{mso-style-name:"Intense Quote Char";
+	mso-style-link:"Intense Quote";
+	font-family:"Caecilia LT Roman";
+	color:#4F81BD;
+	font-weight:bold;
+	font-style:italic;}
+span.CodeNumber
+	{mso-style-name:CodeNumber;
+	font-family:Consolas;
+	color:#BFBFBF;}
+p.Xref, li.Xref, div.Xref
+	{mso-style-name:Xref;
+	mso-style-link:"Xref Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	background:#D9D9D9;
+	border:none;
+	padding:0in;
+	font-size:11.0pt;
+	font-family:"Caecilia LT Roman";
+	color:black;}
+span.XrefChar
+	{mso-style-name:"Xref Char";
+	mso-style-link:Xref;
+	font-family:"Caecilia LT Roman";
+	color:black;
+	background:#D9D9D9;}
+span.Heading2Char
+	{mso-style-name:"Heading 2 Char";
+	mso-style-link:"Heading 2";
+	font-family:DicotBold;
+	color:#222222;
+	letter-spacing:.4pt;}
+p.SolnsLink, li.SolnsLink, div.SolnsLink
+	{mso-style-name:SolnsLink;
+	mso-style-link:"SolnsLink Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Caecilia LT Roman";
+	color:black;}
+span.SolnsLinkChar
+	{mso-style-name:"SolnsLink Char";
+	mso-style-link:SolnsLink;
+	font-family:"Caecilia LT Roman";
+	color:#222222;}
+span.msoIns
+	{mso-style-name:"";
+	text-decoration:underline;
+	color:teal;}
+span.msoDel
+	{mso-style-name:"";
+	text-decoration:line-through;
+	color:red;}
+.MsoChpDefault
+	{font-family:"Calibri","sans-serif";}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:7.5in 9.25in;
+	margin:.75in 1.0in 1.0in 1.2in;}
+div.WordSection1
+	{page:WordSection1;}
+@page WordSection2
+	{size:7.5in 9.25in;
+	margin:.75in 1.0in 1.0in 1.2in;}
+div.WordSection2
+	{page:WordSection2;}
+@page WordSection3
+	{size:7.5in 9.25in;
+	margin:.75in 1.0in 1.0in 1.2in;}
+div.WordSection3
+	{page:WordSection3;}
+@page WordSection4
+	{size:7.5in 9.25in;
+	margin:.75in 1.0in 1.0in 1.2in;}
+div.WordSection4
+	{page:WordSection4;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+</head>
+<body bgcolor="white" lang="EN-US" link="blue" vlink="purple"><h1 id="Save">Corrections in Atomic Scala from version 1.0 to version 1.1</h1>
+<h4 id="Save">Atom name is at the beginning of each block, and surrounding lines provide context.</h4>
+<h4 id="Save">Changes are color-highlighted within each block.</h4>
+
+
+<span style='font-size:11.0pt;line-height:115%;font-family:"Caecilia LT Roman";
+color:black'><br clear="all" style="page-break-before:auto"/>
+</span>
+<div class="WordSection2">
+<div class="Chapter" id="Introduction"><hr id="Save" style="height: 10px; border-width:0; background-color:gray;"/><h1 id="Save"><a name="_Toc348878391"></a><a name="_Toc348787754"></a><a name="_Toc348354806"></a><a name="_Toc346768572"></a><a name="_Toc346711646"><span style="font-family:Symbol;color:windowtext"><img alt="*" height="45" src="AtomicScalaV1.1_files/image002.jpg" width="45"/><span style='font:7.0pt "Times New Roman"'> 
+</span></span>Introduction</a></h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p id="Save" style="background-image:url('AtomicScalaV1.1_files/image002.jpg');background-size:20px 20px; background-repeat:repeat-x;">.
+</p>
+<p class="MsoNormal" id="Save">We’re not covering everything in the language – that’s too
+much for a week. We’re giving you what we consider the essentials in a way that
+you can understand them, so you have a strong basis for moving forward with
+Scala, either through self-study or more advanced courses.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">One of the great things about the “Atomic” format is that it
+produces small lectures – we try to keep them less than 15 minutes each, within
+the limits of everyone’s attention span. Shorter, more energetic lectures keep
+you engaged.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">After each lecture, we’ll give you exercises that develop
+and cement your knowledge.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">Check <b>AtomicScala.com</b> for our public seminars. You
+can schedule In-house seminars with the “Contact Us” form on the website.</p>
+<h2 id="Save">Consulting</h2>
+<p class="MsoNormal" id="Save"><b>Bruce Eckel</b> believes that the foundation of the art
+of consulting is understanding the particular needs and abilities of your team
+and organization, and through that, discovering the tools and techniques that
+will serve and move you forward in the most optimal way. These include
+mentoring and assisting in multiple areas: helping you analyze your plan,
+evaluating strengths and risks, design assistance, tool evaluation and choice,
+language training, project bootstrapping workshops, mentoring visits during
+development, guided code walkthroughs, and research and spot training on
+specialized topics. To find out Bruce’s availability and fitness for your
+needs, you can contact him at <b>MindviewInc@gmail.com</b>.</p>
+<p class="MsoNormal" id="Save" style="background-color:efefba;"><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-07T06:23"> </del></span></p>
+<p class="MsoNormal" id="Save" style="background-color:efefba;"><b><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-07T06:23">Dianne Marsh</del></span></b><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-07T06:23"> </del></span><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-07T06:14">co-founded
+SRT Solutions when she realized that the software industry moves quickly, but
+software companies are slow to adopt new technologies. Dianne and her business
+partner, Bill Wagner, lead a company of software consultants who excel at using
+new technologies in product development and at mentoring other developers to do
+so. The company invests heavily in its developers, enlisting them in
+researching new technologies and sharing what they’ve learned with the software
+community in blogs, technical talks, articles, open source projects, and books
+like this one. SRT Solutions, recognized as one of the fastest growing private
+companies by Inc. Magazine, provides custom software development and mentoring
+on a variety of technologies and platforms for mobile, web, and desktop
+applications. For more information, send email to sales@srtsolutions.com or
+call 734-929-3211.</del></span></p>
+<h2 id="Save">Conferences</h2>
+<p class="MsoNormal" id="Save" style="background-color:efefba;">Bruce has organized the <i>Java Posse Roundup</i>, an
+Open-Spaces conference, and <span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-07T06:15">would like to create</del></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-07T06:15">the <i>Scala
+Summit</i> (www.ScalaSummit.com)</ins></span> a recurring Open-Spaces
+conference for Scala<span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-07T06:15"> as well</del></span>. Dianne has organized the Ann
+Arbor Scala Enthusiasts group, and is one of the organizers for <i>CodeMash</i>.
+Join the mailing list at <b>AtomicScala.com</b> to stay informed about our
+activities and where we are speaking.</p>
+<h2 id="Save">Support Us</h2>
+<p class="MsoNormal" id="Save">This was a big project, and it took us a lot of time and
+effort to produce this book and accompanying support materials. If you like
+this book and would like to see more things like it, please consider supporting
+us:</p>
+<p class="Bulleted" id="Save"><span style="font-family:Symbol"><img alt="*" height="12" src="AtomicScalaV1.1_files/image001.jpg" width="12"/><span style='font:7.0pt "Times New Roman"'>        
+</span></span><i>Blog, tweet, etc. and tell your friends.</i> This is a
+grassroots marketing effort so everything you can do will help.</p>
+<p class="Bulleted" id="Save" style="background-color:efefba;"><span style="font-family:Symbol"><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-07T06:16"><img alt="*" height="12" src="AtomicScalaV1.1_files/image001.jpg" width="12"/><span style='font:7.0pt "Times New Roman"'>              
+</span></del></span></span><i><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-07T06:16">Donate to our tip jar</del></span></i><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-07T06:16"> at <b>AtomicScala.com/tip-jar</b>.</del></span></p>
+<p class="Bulleted" id="Save"><span style="font-family:Symbol"><img alt="*" height="12" src="AtomicScalaV1.1_files/image001.jpg" width="12"/><span style='font:7.0pt "Times New Roman"'>        
+</span></span><i>Purchase an eBook or print version</i> of this book at <b>AtomicScala.com</b>.</p>
+<p class="Bulleted" id="Save" style="background-color:efefba;"><span style="font-family:Symbol"><img alt="*" height="12" src="AtomicScalaV1.1_files/image001.jpg" width="12"/><span style='font:7.0pt "Times New Roman"'>        
+</span></span><i>Check <b>AtomicScala.com</b> for<span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-07T06:24"> </ins></span><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-07T06:24"> </del></span>other<span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-07T06:24"> </ins></span><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-07T06:24"> </del></span>support
+products</i><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-07T06:17">, like a book summary card, Scala hint bookmark,</del></span>
+or apps.</p>
+<p class="Bulleted" id="Save"><span style="font-family:Symbol"><img alt="*" height="12" src="AtomicScalaV1.1_files/image001.jpg" width="12"/><span style='font:7.0pt "Times New Roman"'>        
+</span></span><i>Come to one of our public seminars.</i></p>
+<p class="Bulleted" id="Save" style="background-color:efefba;"><span style="font-family:Symbol"><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-07T06:17"><img alt="*" height="12" src="AtomicScalaV1.1_files/image001.jpg" width="12"/><span style='font:7.0pt "Times New Roman"'>              
+</span></del></span></span><i><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-07T06:17">Consider hiring one of us to help you out as a
+consultant</del></span></i><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-07T06:17"> on your project.</del></span></p>
+<h2 id="Save">About Us</h2>
+<p class="MsoNormal" id="Save" style="background-color:efefba;"><b>Bruce Eckel</b> is the author of the multi-award-winning <i>Thinking
+in Java</i> and <i>Thinking in C++</i>, and a number of other books on computer
+programming. He’s been in the computer industry for over 30 years, periodically
+gets frustrated and tries to quit, then something like Scala comes along,
+offering hope and drawing him back in. He’s given hundreds of presentations
+around the world and enjoys putting on alternative conferences and events like <i>The
+Java Posse Roundup</i><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-07T06:18"> and <i>Scala Summit</i></ins></span>. He lives in
+Crested Butte, Colorado where he often acts in the community theatre. Although
+he will probably never be more than an intermediate-level skier or mountain
+biker, he finds these very enjoyable pursuits and considers them among his
+stable of life-projects, along with abstract painting. Bruce has a BS in
+applied physics, and an MS in computer engineering. He is currently studying
+organizational dynamics, trying to find a new way to organize companies so that
+working together becomes a joy; you can read about his struggles at <b>www.reinventing-business.com</b>,
+while his programming work is found at <b>www.mindviewinc.com</b>. <span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-07T06:19">Bruce
+thanks Josh Suereth for all his technical help.</del></span></p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save" style="background-color:efefba;"><b>Dianne Marsh</b> <span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-07T06:23">is the Director of
+Engineering for Cloud Tools at Netflix. Previously, she co-founded and ran SRT
+Solutions, a custom software development firm, before selling the company in
+2013. Her expertise in software programming and technology includes
+manufacturing, genomics decision support and real-time processing applications.
+Dianne started her professional career using C and has enjoyed many languages
+since then, including C++, Java, and C#, and is currently having a lot of fun
+using Scala. Dianne helped organize CodeMash (www.codemash.org), an
+all-volunteer developer conference bringing together programmers of various
+programming languages to learn from one another, and has been a board member of
+the Ann Arbor Hands</ins></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-10T10:21">-O</ins></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-07T06:23">n
+Museum. She is active with local user groups and hosts several. She earned her
+Master of Science degree in computer science from Michigan Technological
+University. She's married to her best friend, has two fun young children and
+she talked Bruce into doing this book.</ins></span><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-07T06:23">is the co-founder of
+SRT Solutions in Ann Arbor, Michigan. Her expertise in software programming and
+technology includes manufacturing, genomics decision support and real-time
+processing applications. Dianne started her professional career using C and has
+enjoyed many languages since, including C++, Java, and C#, and is currently
+having a lot of fun using Scala. Dianne is a member of the Women Presidents
+Organization (www.womenpresidentsorg.com) and a board member of the Ann Arbor
+Hands on Museum. Dianne is one of the organizers for CodeMash (www.codemash.org),
+an all-volunteer developer conference focused on bringing together users of
+various programming languages to learn from one another. She is active with
+local user groups, and hosts several. She earned her Master of Science degree
+in computer science from Michigan Technological University. She’s married to
+her best friend, has two fun young children and she talked Bruce into doing
+this book.</del></span></p>
+<h2 id="Save">Acknowledgements</h2>
+<p class="MsoNormal" id="Save">We thank the Programming Summer Camp 2011 attendees for
+their early comments and participation with the book. We would like to
+specifically thank Steve Harley, Alf Kristian Stoyle, Andrew Harmel-Law, Al
+Gorup, Joel Neely, and James Ward, all of whom have been generous with their
+time and comments. We also thank the many reviewers of this book in Google Docs
+format. </p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">Bruce thanks Josh Suereth for all his technical help. Also
+Rumors Coffee and Tea House/Townie Books in Crested Butte for all the time he
+spent there working on this book, and Mimi and Jay at Bliss Chiropractic for
+regularly straightening him out during the process.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save" style="background-color:efefba;">Dianne thanks her <span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-07T10:59">SRT </ins></span>business
+partner, Bill Wagner, and her employees at SRT Solutions for the time that
+she’s spent away from the business. She also thanks Bruce for agreeing to write
+the book with her and keeping her on task throughout the process, even as he
+certainly grew weary of passive voice and punctuation errors. And special
+thanks go to her husband, Tom Sosnowski, for his tolerance and encouragement
+throughout this process.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">Finally, thanks to Bill Venners and Dick
+Wall, whose “Stairway to Scala” class helped solidify our understanding of the
+language.</p>
+<h2 id="Save">Dedication</h2>
+<p class="MsoNormal" id="Save">To Julianna and Benjamin Sosnowski. You are amazing.</p>
+<h2 id="Save">Copyrights</h2>
+<p class="MsoNormal" id="Save">All copyrights in this book are the property of their
+respective holders. See <span class="XrefChar"><span style="color:black">Copyright</span></span>
+for full details.</p>
+<p class="MsoNormal" id="Save"> </p>
+<span id="Save" style='font-size:11.0pt;line-height:115%;font-family:"Caecilia LT Roman";
+color:black'><br clear="all" style="page-break-before:always"/>
+</span>
+<p class="MsoNormal" id="Save"> </p>
+</div><div class="Chapter" id="Values"><hr id="Save" style="height: 10px; border-width:0; background-color:gray;"/><h1 id="Save"><a name="_Toc348878400"></a><a name="_Toc348787763"></a><a name="_Toc348354815"></a><a name="_Toc346768581"></a><a name="_Toc346711655"><span style="font-family:Symbol;color:windowtext"><img alt="*" height="45" src="AtomicScalaV1.1_files/image002.jpg" width="45"/><span style='font:7.0pt "Times New Roman"'> 
+</span></span>Values</a></h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p id="Save" style="background-image:url('AtomicScalaV1.1_files/image002.jpg');background-size:20px 20px; background-repeat:repeat-x;">.
+</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">Once you initialize a <b>val</b>, you can’t change it (it is
+<i>constant</i>). Once we set <b>whole</b> to 11, for example, we can’t later
+say:</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="Code" id="Save">whole = 15</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">If we do this, Scala complains, saying “error: reassignment
+to val.”</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">It’s important to choose descriptive names for your
+identifiers. This makes it easier for people to understand your code and often
+reduces the need for comments. Looking at the code snippet above, you have no
+idea what <b>whole</b> represents. If your program is storing the number 11 to
+represent the time of day when you get coffee, it’s more obvious to others if
+you name it <b>coffeetime</b> and easier to read if it’s <b>coffeeTime</b>.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save" style="background-color:efefba;">In the first few examples of this book, we show the output
+at the end of the listing, inside a multi<span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-11T09:13">-</del></span>line
+comment. Note that <b>println</b> will take a single value, or a
+comma-separated sequence of values.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">We include exercises with each atom from this point forward.
+The solutions are available at <b>AtomicScala.com</b>. The solution folders
+match the names of the atoms. </p>
+<span id="Save" style='font-size:11.0pt;line-height:115%;font-family:"Caecilia LT Roman";
+color:black'><br clear="all" style="page-break-before:always"/>
+</span>
+<p class="MsoNormal" id="Save" style="margin-bottom:10.0pt"><span style="font-size:24.0pt;
+line-height:115%;font-family:DicotBold;letter-spacing:.4pt"> </span></p>
+<h2 id="Save">Exercises</h2>
+<p class="SolnsLink" id="Save">Solutions are available at <b>www.AtomicScala.com</b>.</p>
+<p class="Exercise" id="Save">1.<span style='font:7.0pt "Times New Roman"'>   
+</span>Store (and print) the value <b>17</b>.</p>
+<p class="Exercise" id="Save">2.<span style='font:7.0pt "Times New Roman"'>   
+</span>Using the value you just stored (<b>17</b>), try to change it to <b>20</b>.
+What happened?</p>
+<p class="Exercise" id="Save">3.<span style='font:7.0pt "Times New Roman"'>   
+</span>Store (and print) the value “<b>ABC1234</b>.”</p>
+<p class="Exercise" id="Save">4.<span style='font:7.0pt "Times New Roman"'>   
+</span>Using the value you just stored (“<b>ABC1234</b>”), try to change it to “<b>DEF1234</b>.”
+What happened?</p>
+
+
+
+
+
+</div><div class="Chapter" id="Data Types"><hr id="Save" style="height: 10px; border-width:0; background-color:gray;"/><h1 id="Save"><a name="_Toc348878401"></a><a name="_Toc348787764"></a><a name="_Toc348354816"></a><a name="_Toc346768582"></a><a name="_Toc346711656"><span style="font-family:Symbol;color:windowtext"><img alt="*" height="45" src="AtomicScalaV1.1_files/image002.jpg" width="45"/><span style='font:7.0pt "Times New Roman"'> 
+</span></span>Data Types</a></h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p id="Save" style="background-image:url('AtomicScalaV1.1_files/image002.jpg');background-size:20px 20px; background-repeat:repeat-x;">.
+</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">18</span></span>  Triple quotes allow</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">19</span></span>  you to have many lines</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">20</span></span>  in your string</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">21</span></span>  */</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">The <b>Int</b> data type is an<i> integer</i>, which means
+it only holds whole numbers. You can see this on line 3. To hold fractional
+numbers, as on line 4, use a <b>Double</b>.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">A <b>Boolean</b> data type, as on line 6, can only hold the
+two special values <b>true</b> and <b>false</b>.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save" style="background-color:efefba;">A <b>String</b> holds a sequence of characters. You can
+assign a value using a double-quoted string as on line 7, or if you have many
+lines and/or special characters, you can surround them with
+triple-double-quotes, as on lines 8-10<span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-11T09:13"> (this is a </ins></span><i><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-11T09:14">multiline
+string</ins></span></i><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-11T09:14">)</ins></span>.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">Scala uses type inference to figure out what you mean when
+you mix types. When you mix <b>Int</b>s and <b>Double</b>s using addition, for
+example, Scala decides the type to use for the resulting value. Try the
+following in the REPL:</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="Code" id="Save">scala&gt; val n = 1 + 1.2</p>
+<p class="Code" id="Save">n: Double = 2.2</p>
+<p class="MsoNormal" id="Save"> </p><p id="Save" style="background-image:url('AtomicScalaV1.1_files/image002.jpg');background-size:20px 20px; background-repeat:repeat-x;">.
+</p>
+<p class="MsoNormal" id="Save">This shows that when you add an <b>Int</b> to a <b>Double</b>,
+the result becomes a <b>Double</b>. With type inference, Scala determines that <b>n</b>
+should be a <b>Double</b> and ensures that it follows all the rules for <b>Double</b>s.
+It does this seemingly trivial bit of work for you, so you can focus on the
+more meaningful code.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">Scala does a lot of type inference for you, as part of its
+strategy of doing work for the programmer. You can usually try leaving out the
+type declaration and see whether Scala will pick up the slack. If not, it will
+give you an error message. We’ll see more of this as we go.</p>
+<h2 id="Save">Exercises</h2>
+<p class="SolnsLink" id="Save">Solutions are available at <b>www.AtomicScala.com</b>.</p>
+<p class="Exercise" id="Save">1.<span style='font:7.0pt "Times New Roman"'>   
+</span>Store the value <b>5</b> as an <b>Int</b> and print the value.</p>
+<p class="Exercise" id="Save">2.<span style='font:7.0pt "Times New Roman"'>   
+</span>Store (and print) the value “<b>ABC1234</b>” as a <b>String</b>.</p>
+<p class="Exercise" id="Save">3.<span style='font:7.0pt "Times New Roman"'>   
+</span>Store the value <b>5.4</b> as a <b>Double</b>. Print it.</p>
+<p class="Exercise" id="Save">4.<span style='font:7.0pt "Times New Roman"'>   
+</span>Store the value <b>true</b>. What type did you use? What did it print?</p>
+<p class="Exercise" id="Save" style="background-color:efefba;">5.<span style='font:7.0pt "Times New Roman"'>   
+</span>Store a multi<span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-11T09:14">-</del></span>line <b>String</b>. Does it print in
+multiple lines?</p>
+<p class="Exercise" id="Save">6.<span style='font:7.0pt "Times New Roman"'>   
+</span>What happens if you try to store the <b>String</b> “<b>maybe</b>” in a <b>Boolean</b>?</p>
+<p class="Exercise" id="Save">7.<span style='font:7.0pt "Times New Roman"'>   
+</span>What happens if you try to store the number <b>15.4</b> in an <b>Int</b>
+value?</p>
+<p class="Exercise" id="Save">8.<span style='font:7.0pt "Times New Roman"'>   
+</span>What happens if you try to store the number <b>15</b> in a <b>Double</b>
+value? Print it.</p>
+<span id="Save" style='font-size:11.0pt;line-height:115%;font-family:"Caecilia LT Roman";
+color:black'><br clear="all" style="page-break-before:always"/>
+</span>
+<p class="MsoNormal" id="Save"> </p>
+</div><div class="Chapter" id="Summary 1"><hr id="Save" style="height: 10px; border-width:0; background-color:gray;"/><h1 id="Save"><a name="_Toc348878407"></a><a name="_Toc348787770"></a><a name="_Toc348354822"></a><a name="_Toc346768588"></a><a name="_Toc346711662"><span style="font-family:Symbol;color:windowtext"><img alt="*" height="45" src="AtomicScalaV1.1_files/image002.jpg" width="45"/><span style='font:7.0pt "Times New Roman"'> 
+</span></span>Summary 1</a></h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p id="Save" style="background-image:url('AtomicScalaV1.1_files/image002.jpg');background-size:20px 20px; background-repeat:repeat-x;">.
+</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="Code" id="Save">scala&gt; if (99 &lt; 100) { 4 } else { 42 }</p>
+<p class="Code" id="Save">res0: Int = 4</p>
+<p class="Code" id="Save"> </p>
+<p class="MsoNormal" id="Save">Because we didn’t create a <b>var</b> or <b>val</b>
+identifier to hold the result of this expression, the REPL assigned the result
+to the temporary variable <b>res0</b>. You can specify your own value:</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="Code" id="Save">scala&gt; val result = if (99 &lt; 100) { 4 } else { 42 }</p>
+<p class="Code" id="Save">result: Int = 4</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save" style="background-color:efefba;">When entering multi<span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-11T09:15">-</del></span>line
+expressions in the REPL, it’s helpful to put it into <i>paste mode</i> with the <b>:paste</b> command. This delays interpretation until
+you enter <b>CTRL-D</b>. Paste mode is especially useful when copying and
+pasting chunks of code into the REPL.</p>
+<h2 id="Save"><a name="_Toc342652967">Evaluation Order</a></h2>
+<p class="MsoNormal" id="Save">When you’re not sure what order Scala will choose for
+evaluating expressions, use parentheses to force your intention. This also
+makes it clear to anyone reading your code. Understanding evaluation order
+helps you to decipher what a program does, both with logical operations
+(Boolean expressions) and with mathematical operations.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">When you divide an <b>Int</b> with another <b>Int</b>, Scala
+produces an <b>Int</b> result, and any remainder is truncated. So 1/2 produces
+0. If a <b>Double</b> is involved, the <b>Int</b> is <i>promoted</i> to <b>Double</b>
+before the operation, so 1.0/2 produces 0.5.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">You might expect the following to produce 3.4:</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="Code" id="Save">scala&gt; 3.0 + 2/5</p>
+<p class="Code" id="Save">res1: Double = 3.0 </p>
+<p class="MsoNormal" id="Save"> </p>
+
+
+
+
+
+
+
+
+
+
+<p id="Save" style="background-image:url('AtomicScalaV1.1_files/image002.jpg');background-size:20px 20px; background-repeat:repeat-x;">.
+</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">3</span></span>   val height = 68.0</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">4</span></span>   val weightStatus = {</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">5</span></span>     val bmi = lbs/(height * height) * 703.07</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">6</span></span>     if(bmi &lt; 18.5) "Underweight"</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">7</span></span>     else if(bmi &lt; 25) "Normal weight"</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">8</span></span>     else "Overweight"</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">9</span></span>   }</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">10</span></span>  println(weightStatus)</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save" style="background-color:efefba;">When you define a value inside an expression, such as <b>bmi</b>
+on line <span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-04T16:44">7</del></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-04T16:44">5</ins></span>, the
+value is not accessible outside the scope of the expression. Notice, that <b>lbs</b>
+and <b>height</b> are accessible inside the compound expression.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">The result of the compound expression is whatever is
+produced by its last expression; in this case, the <b>String</b> “Normal weight.”
+</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">Experienced programmers should go to <span class="XrefChar"><span style="color:black">Summary 2</span></span> after working the following
+exercises.</p><p id="Save" style="background-image:url('AtomicScalaV1.1_files/image002.jpg');background-size:20px 20px; background-repeat:repeat-x;">.
+</p>
+<h2 id="Save">Exercises</h2>
+<p class="SolnsLink" id="Save">Solutions are available at <b>www.AtomicScala.com</b>.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">Work exercises 1-8 in the REPL.</p>
+<p class="Exercise" id="Save">1.<span style='font:7.0pt "Times New Roman"'>   
+</span>Store and print an <b>Int</b> value.</p>
+<p class="Exercise" id="Save">2.<span style='font:7.0pt "Times New Roman"'>   
+</span>Try to change the value. What happened?</p>
+<p class="Exercise" id="Save">3.<span style='font:7.0pt "Times New Roman"'>   
+</span>Create a <b>var</b> and initialize it to an <b>Int</b>, then try
+reassigning to a <b>Double</b>. What happened?</p>
+<p class="Exercise" id="Save">4.<span style='font:7.0pt "Times New Roman"'>   
+</span>Store and print a <b>Double</b>. Did you use type inference? Try declaring
+the type.</p>
+<p class="Exercise" id="Save">5.<span style='font:7.0pt "Times New Roman"'>   
+</span>What happens if you try to store the number <b>15</b> in a <b>Double</b>
+value?</p>
+<p class="Exercise" id="Save" style="background-color:efefba;">6.<span style='font:7.0pt "Times New Roman"'>   
+</span>Store a multi<span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-11T09:15">-</del></span>line <b>String</b> <span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-11T09:27">(see </ins></span><span style="color:black !msorm"><span class="XrefChar"><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-11T09:27">Data Types</ins></span></span></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-11T09:27">) </ins></span>and
+print it.</p>
+<p class="Exercise" id="Save">7.<span style='font:7.0pt "Times New Roman"'>   
+</span>What happens if you try to store the <b>String</b> “<b>maybe</b>” in a <b>Boolean</b>?</p>
+<p class="Exercise" id="Save">8.<span style='font:7.0pt "Times New Roman"'>   
+</span>What happens if you try to store the number <b>15.4</b> in an <b>Int</b>
+value?</p>
+<p class="Exercise" id="Save">9.<span style='font:7.0pt "Times New Roman"'>   
+</span>Modify <b>weightStatus</b> in <b>CompoundBMI.scala </b>to return<b> Unit</b>
+instead of <b>String</b>.</p>
+<p class="Exercise" id="Save">10.<span style='font:7.0pt "Times New Roman"'>  </span>Modify
+<b>CompoundBMI.scala</b> to return an <b>idealWeight</b> based on a BMI of 22.0.
+Hint: idealWeight = bmi * (height * height) / 703.07</p>
+<span id="Save" style='font-size:11.0pt;line-height:115%;font-family:"Caecilia LT Roman";
+color:black'><br clear="all" style="page-break-before:always"/>
+</span>
+<p class="MsoNormal" id="Save"> </p>
+</div><div class="Chapter" id="Testing"><hr id="Save" style="height: 10px; border-width:0; background-color:gray;"/><h1 id="Save"><a name="_Toc348878414"></a><a name="_Toc348787777"></a><a name="_Toc348354829"></a><a name="_Toc346768595"></a><a name="_Toc346711669"><span style="font-family:Symbol;color:windowtext"><img alt="*" height="45" src="AtomicScalaV1.1_files/image002.jpg" width="45"/><span style='font:7.0pt "Times New Roman"'> 
+</span></span>Testing</a></h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p id="Save" style="background-image:url('AtomicScalaV1.1_files/image002.jpg');background-size:20px 20px; background-repeat:repeat-x;">.
+</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">17</span></span>  */</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">Before you can run a Scala script that uses <b>AtomicTest</b>, you must follow the instructions in your appropriate
+“Installation” atom to compile the <b>AtomicTest</b> object (or just run the
+“testall” script, also described in that atom).</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">We don’t intend that you understand the code for <b>com.atomicscala.AtomicTest</b>
+because it uses some tricks that are beyond the scope of this book. If you’d
+like to see the code, it’s in <span class="XrefChar"><span style="color:black">Appendix
+A</span></span>.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">In order to produce a clean, comfortable appearance, <b>AtomicTest</b>
+uses a Scala feature that you haven’t seen before: the ability to write a
+method call <b>a.method(b)</b> in the text-like form:</p>
+<p class="Code" id="Save"><br/>
+a method b</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save" style="background-color:efefba;"><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-11T09:44">This is called <i>infix notation</i></ins></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-11T09:44">. </ins></span><b>AtomicTest</b>
+uses this feature by defining an <b>is</b> method:</p>
+<p class="Code" id="Save"><br/>
+expression <b>is</b> expected</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">You can see this used on lines 8 and 9 in the previous
+example.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">This system is very flexible – almost anything works as a
+test expression. If <i>expected</i> is a string, then <i>expression</i> is
+converted to a string and the two strings are compared. Otherwise, <i>expression</i>
+and <i>expected</i> are just compared directly (without converting them first).
+In either case, <i>expression</i> is displayed on the console so you can see
+something happening when the program runs. If <i>expression</i> and <i>expected</i>
+are not equivalent, <b>AtomicTest</b> prints an error message when the program
+runs (and records it in the file <b>_AtomicTestErrors.txt</b>).</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">Lines 12-14 show the output; the output from lines 8 and 9
+are on lines 12 and 13; even though the tests succeeded you still get output
+showing the contents of the object on the left of <b>is</b>. Line 10
+intentionally fails so you can see the output. Line 14 shows what the object
+is, followed by the error message, followed by what the program expected to see
+for that object.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">That’s all there is to it. The <b>is</b> method is the only
+operation defined for <b>AtomicTest</b> – it truly is a minimal testing system.
+Now you can put “<b>is</b>” expressions anywhere in a script to produce both a
+test and some console output.</p>
+<p class="MsoNormal" id="Save"> </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div><div class="Chapter" id="For Loops"><hr id="Save" style="height: 10px; border-width:0; background-color:gray;"/><h1 id="Save"><a name="_Toc348878416"></a><a name="_Toc348787779"></a><a name="_Toc348354831"></a><a name="_Toc346768597"></a><a name="_Toc346711671"><span style="font-family:Symbol;color:windowtext"><img alt="*" height="45" src="AtomicScalaV1.1_files/image002.jpg" width="45"/><span style='font:7.0pt "Times New Roman"'> 
+</span></span>For Loops</a></h1><p id="Save" style="background-image:url('AtomicScalaV1.1_files/image002.jpg');background-size:20px 20px; background-repeat:repeat-x;">.
+</p>
+<p class="MsoNormal" id="Save" style="background-color:efefba;">A <b>for</b> loop steps through a sequence of values so you
+can perform operations using each value. You start with the keyword <b>for</b>,
+followed by a parenthesized expression that traverses the sequence of values.
+Within the parentheses, you first see the identifier that receives each of the
+values in turn, pointed at by a <b>&lt;-</b> (backwards-pointing arrow; you may
+choose to read this as “gets”), and then an expression that generates the
+sequence. On lines 5, 11 and 17, we show three equivalent expressions: <b>0 to
+9</b>, <b>0 until 10</b> and <b>Range(0, 10)</b><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-11T09:49"> (<b>to</b> and <b>until</b>
+are additional examples of <i>infix notation</i></ins></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-11T09:49">)</ins></span>.
+Each produces a sequence of <b>Int</b>s, which we append to a <b>var</b> <b>String</b>
+called <b>result</b> (using the ‘<b>+=</b>’ operator), in order to produce
+something testable (then we reset <b>result</b> to an empty string for the next
+<b>for</b> loop):</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">1</span></span>   // For.scala</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">2</span></span>   import com.atomicscala.AtomicTest._</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">3   </span></span></p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">4</span></span>   var result = ""</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">5</span></span>   for(i &lt;- 0 to 9) {</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">6</span></span>     result += i + " "</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">7</span></span>   }</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">8</span></span>   result is "0 1 2 3 4 5 6 7 8 9 "</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">9   </span></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div><div class="Chapter" id="Summary 2"><hr id="Save" style="height: 10px; border-width:0; background-color:gray;"/><h1 id="Save"><a name="_Toc348878419"></a><a name="_Toc348787782"></a><a name="_Toc348354834"></a><a name="_Toc346768600"></a><a name="_Toc346711674"><span style="font-family:Symbol;color:windowtext"><img alt="*" height="45" src="AtomicScalaV1.1_files/image002.jpg" width="45"/><span style='font:7.0pt "Times New Roman"'> 
+</span></span>Summary 2</a></h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p id="Save" style="background-image:url('AtomicScalaV1.1_files/image002.jpg');background-size:20px 20px; background-repeat:repeat-x;">.
+</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">Here’s a class with methods:</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">1</span></span>   // Temperature.scala</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">2</span></span>   import com.atomicscala.AtomicTest._</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">3   </span></span></p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">4</span></span>   class Temperature {</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">5</span></span>     var current = 0.0</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">6</span></span>     var scale = "f"</p>
+<p class="Code" id="Save" style="background-color:efefba;"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">7</span></span>     def setFahrenheit(now:Double)<span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-13T08:14">:Unit</ins></span> = {</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">8</span></span>       current = now</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">9</span></span>       scale = "f"</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">10</span></span>    }</p>
+<p class="Code" id="Save" style="background-color:efefba;"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">11</span></span>    def setCelsius(now:Double)<span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-13T08:14">:Unit</ins></span> = {</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">12</span></span>      current = now</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">13</span></span>      scale = "c"</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">14</span></span>    }</p>
+<p class="Code" id="Save" style="background-color:efefba;"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">15</span></span>    def getFahrenheit()<span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-13T08:15">:Double</ins></span> =
+{</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">16</span></span>      if(scale == "f")</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">17</span></span>        current</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">18</span></span>      else</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">19</span></span>        current * 9.0/5.0 + 32.0</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">20</span></span>    }</p>
+<span class="CodeNumber" id="Save"><span style="font-size:9.0pt;line-height:115%"><br clear="all" style="page-break-before:always"/>
+</span></span>
+<p class="MsoNormal" id="Save" style="margin-bottom:10.0pt"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:115%"> </span></span></p>
+<p class="Code" id="Save" style="background-color:efefba;"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">21</span></span>    def getCelsius()<span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-13T08:15">:Double</ins></span> =
+{</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">22</span></span>      if(scale == "c")</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">23</span></span>        current</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">24</span></span>      else</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">25</span></span>        (current - 32.0) * 5.0/9.0</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">26</span></span>    }</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">27</span></span>  }</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">28  </span></span></p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">29</span></span>  val temp = new Temperature</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">30</span></span>  temp.setFahrenheit(98.6)</p><p id="Save" style="background-image:url('AtomicScalaV1.1_files/image002.jpg');background-size:20px 20px; background-repeat:repeat-x;">.
+</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">31</span></span>  temp.getFahrenheit() is 98.6</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">32</span></span>  temp.getCelsius is 37.0</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">33</span></span>  temp.setCelsius(100.0)</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">34</span></span>  temp.getFahrenheit is 212.0</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">These methods are just like those we’ve defined <i>outside</i>
+of classes, except that they belong to the class and have unqualified access to
+the other members of the class – such as <b>current</b> and <b>scale</b>
+(methods can also call other methods in the class without qualification).</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">Notice that line 29 uses a <b>val</b> for <b>temp</b>, but
+lines 30 and 33 modify the <b>Temperature</b> object. The <b>val</b>
+declaration simply prevents the reference <b>temp</b> from being reassigned to
+a new object; it does not restrict the behavior of the object itself.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save" style="background-color:efefba;">On lines 31, 32 and 34 you can see that, if a method has an
+empty argument list, Scala allows you to call it with or without <span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-07T11:31">an
+argument list</del></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-07T11:31">parentheses</ins></span>.</p>
+<p class="MsoNormal" id="Save"><a name="_Toc346768601"> </a></p><p id="Save" style="background-image:url('AtomicScalaV1.1_files/image002.jpg');background-size:20px 20px; background-repeat:repeat-x;">.
+</p>
+<p class="MsoNormal" id="Save">The following two classes are the foundation of a
+tic-tac-toe game. They also further demonstrate conditional expressions:</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">1</span></span>   // TicTacToe.scala</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">2</span></span>   import com.atomicscala.AtomicTest._</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">3   </span></span></p>
+<span class="CodeNumber" id="Save"><span style="font-size:9.0pt;line-height:115%"><br clear="all" style="page-break-before:always"/>
+</span></span>
+<p class="MsoNormal" id="Save" style="margin-bottom:10.0pt"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:115%"> </span></span></p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">4</span></span>   class Cell {</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">5</span></span>     var entry = ' '</p>
+<p class="Code" id="Save" style="background-color:efefba;"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">6</span></span>     def set(e:Char)<span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-13T08:17">:String</ins></span> =
+{</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">7</span></span>       if(entry==' ' &amp;&amp; (e=='X' || e=='O')) {</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">8</span></span>         entry = e</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">9</span></span>         "successful move"</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">10</span></span>      } else</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">11</span></span>        "invalid move"</p><p id="Save" style="background-image:url('AtomicScalaV1.1_files/image002.jpg');background-size:20px 20px; background-repeat:repeat-x;">.
+</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">12</span></span>    }</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">13</span></span>  }</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">14  </span></span></p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">15</span></span>  class Grid {</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">16</span></span>    val cells = Vector(</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">17</span></span>      Vector(new Cell, new Cell, new Cell),</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">18</span></span>      Vector(new Cell, new Cell, new Cell),</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">19</span></span>      Vector(new Cell, new Cell, new Cell)</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">20</span></span>    )</p>
+<p class="Code" id="Save" style="background-color:efefba;"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">21</span></span>    def play(e:Char, x:Int, y:Int)<span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-13T08:18">:String</ins></span> =
+{</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">22</span></span>      if(x &lt; 0 || x &gt; 2 || y &lt; 0 || y &gt; 2)</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">23</span></span>        "invalid move"</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">24</span></span>      else</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">25</span></span>        cells(x)(y).set(e)</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">26</span></span>    }</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">27</span></span>  }</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">28  </span></span></p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">29</span></span>  val grid = new Grid</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">30</span></span>  grid.play('X', 1, 1) is "successful move"</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">31</span></span>  grid.play('X', 1, 1) is "invalid move"</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div><div class="Chapter" id="Constructors"><hr id="Save" style="height: 10px; border-width:0; background-color:gray;"/><h1 id="Save"><a name="_Toc348878424"></a><a name="_Toc348787787"></a><a name="_Toc348354839"></a><a name="_Toc346768605"></a><a name="_Toc346711679"><span style="font-family:Symbol;color:windowtext"><img alt="*" height="45" src="AtomicScalaV1.1_files/image002.jpg" width="45"/><span style='font:7.0pt "Times New Roman"'> 
+</span></span>Constructors</a></h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p id="Save" style="background-image:url('AtomicScalaV1.1_files/image002.jpg');background-size:20px 20px; background-repeat:repeat-x;">.
+</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">39</span></span>  val mocha = new Coffee(decaf = true,</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">40</span></span>    toGo = true, syrup = "Chocolate")</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">41</span></span>  mocha.result is</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">42</span></span>  "ToGoCup decaf shot decaf shot Chocolate"</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">Notice that the methods have access to the class arguments
+without explicitly passing them, and that <b>result</b> is available as an
+object field. Although all the methods are called at the end of the class body,
+they could actually be called at the beginning or any other place in the body
+(try it).</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">When the <b>Coffee</b> constructor completes, it guarantees
+that the class body has successfully run and all proper initialization has
+occurred; the <b>result</b> field captures all the operations.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save" style="background-color:efefba;">We’re using default arguments here, just as we can use them
+in any other method. If all arguments have defaults, you can say <b>new Coffee</b>
+without using parentheses, as on line <span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-10T13:05">33</del></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-10T13:05">37</ins></span>.</p>
+<h2 id="Save">Exercises</h2>
+<p class="SolnsLink" id="Save">Solutions are available at <b>www.AtomicScala.com</b>.</p>
+<p class="Exercise" id="Save">1.<span style='font:7.0pt "Times New Roman"'>   
+</span>Modify <b>Coffee.scala</b> so you can specify some caffeinated shots and
+some decaf shots. Satisfy the following tests:<br/>
+<span class="CodeChar"><span style="color:black">val doubleHalfCaf =<br/>
+  new Coffee(shots=2, decaf=1)<br/>
+val tripleHalfCaf =<br/>
+  new Coffee(shots=3, decaf=2)<br/>
+doubleHalfCaf.decaf is 1<br/>
+doubleHalfCaf.caf is 1<br/>
+doubleHalfCaf.shots is 2<br/>
+tripleHalfCaf.decaf is 2<br/>
+tripleHalfCaf.caf is 1<br/>
+tripleHalfCaf.shots is 3</span></span></p>
+<p class="Exercise" id="Save"><span class="CodeChar"><span style='font-family:"Caecilia LT Roman";
+color:black'>2.<span style='font:7.0pt "Times New Roman"'>    </span></span></span>Create
+a new class <b>Tea</b> that has 2 methods: <b>describe</b>, which includes
+information about whether the tea includes milk, sugar, is decaffeinated, and
+includes the name; and <b>calories</b>, which adds 100 calories for milk and 16
+calories for sugar. Satisfy the following tests:<br/>
+<span class="CodeChar"><span style="color:black">val tea = new Tea<br/>
+tea.describe is "Earl Grey"<br/>
+tea.calories is 0<br/>
+<br/>
+val lemonZinger = new Tea(<br/>
+  decaf = true, name="Lemon Zinger")<br/>
+lemonZinger.describe is<br/>
+  "Lemon Zinger decaf"<br/>
+lemonZinger.calories is 0<br/>
+<br/>
+val sweetGreen = new Tea(<br/>
+  name="Jasmine Green", sugar=true)<br/>
+sweetGreen.describe is<br/>
+  "Jasmine Green + sugar"<br/>
+sweetGreen.calories is 16<br/>
+<br/>
+val teaLatte = new Tea(<br/>
+  sugar=true, milk=true)<br/>
+teaLatte.describe is<br/>
+  "Earl Grey + milk + sugar"<br/>
+  teaLatte.calories is 116</span></span></p>
+<span id="Save" style='font-size:11.0pt;line-height:115%;font-family:"Caecilia LT Roman";
+color:black'><br clear="all" style="page-break-before:always"/>
+</span>
+<p class="MsoNormal" id="Save" style="margin-bottom:10.0pt"> </p>
+<p class="Exercise" id="Save"><span class="CodeChar"><span style='font-family:"Caecilia LT Roman";
+color:black'>3.<span style='font:7.0pt "Times New Roman"'>    </span></span></span>Use
+your solution for Exercise 2 as a starting point. Make decaf, milk, sugar and
+name accessible outside of the class. Satisfy the following tests:<br/>
+<span class="CodeChar"><span style="color:black">val tea = new Tea2<br/>
+tea.describe is "Earl Grey"<br/>
+tea.calories is 0<br/>
+tea.name is "Earl Grey"<br/>
+<br/>
+val lemonZinger = new Tea2(decaf = true,<br/>
+  name="Lemon Zinger")<br/>
+lemonZinger.describe is<br/>
+  "Lemon Zinger decaf"<br/>
+lemonZinger.calories is 0<br/>
+lemonZinger.decaf is true<br/>
+<br/>
+val sweetGreen = new Tea2(<br/>
+  name="Jasmine Green", sugar=true)<br/>
+sweetGreen.describe is<br/>
+  "Jasmine Green + sugar"<br/>
+sweetGreen.calories is 16<br/>
+sweetGreen.sugar is true<br/>
+<br/>
+val teaLatte = new Tea2(sugar=true,<br/>
+  milk=true)<br/>
+teaLatte.describe is<br/>
+  "Earl Grey + milk + sugar"<br/>
+teaLatte.calories is 116<br/>
+teaLatte.milk is true</span></span></p>
+<p class="MsoNormal" id="Save"> </p>
+<span id="Save" style='font-size:11.0pt;line-height:115%;font-family:"Caecilia LT Roman";
+color:black'><br clear="all" style="page-break-before:always"/>
+</span>
+<p class="MsoNormal" id="Save" style="margin-bottom:10.0pt"><span style="font-size:36.0pt;
+line-height:115%;font-family:DicotBold"> </span></p>
+</div><div class="Chapter" id="Class Exercises"><hr id="Save" style="height: 10px; border-width:0; background-color:gray;"/><h1 id="Save"><a name="_Toc348878426"></a><a name="_Toc348787789"></a><a name="_Toc348354841"></a><a name="_Toc346768607"></a><a name="_Toc346711681"><span style="font-family:Symbol;color:windowtext"><img alt="*" height="45" src="AtomicScalaV1.1_files/image002.jpg" width="45"/><span style='font:7.0pt "Times New Roman"'> 
+</span></span>Class Exercises</a></h1>
+<p id="Save" style="background-image:url('AtomicScalaV1.1_files/image002.jpg');background-size:20px 20px; background-repeat:repeat-x;">.
+</p>
+<h2 id="Save">Exercises</h2>
+<p class="SolnsLink" id="Save">Solutions are available at <a href="http://www.AtomicScala.com"><b><span style="color:black;text-decoration:
+none">www.AtomicScala.com</span></b></a>.</p>
+<p class="Exercise" id="Save"><span class="CodeChar"><span style='font-family:"Caecilia LT Roman";
+color:black'>1.<span style='font:7.0pt "Times New Roman"'>    </span></span></span>Make
+a class <b>Dimension</b> that has an integer field <b>height</b> and an integer
+field <b>width</b> that can be both retrieved and modified from outside the
+class. Satisfy the following tests:<br/>
+<span class="CodeChar"><span style="color:black">val c = new Dimension(5,7)<br/>
+c.height is 5<br/>
+c.height = 10<br/>
+c.height is 10<br/>
+c.width = 19<br/>
+c.width is 19</span></span></p>
+<p class="Exercise" id="Save"><span class="CodeChar"><span style='font-family:"Caecilia LT Roman";
+color:black'>2.<span style='font:7.0pt "Times New Roman"'>    </span></span></span>Make
+a class <b>Info</b> that has a <b>String</b> field <b>name</b> that can be
+retrieved from outside the class (but not modified) and a <b>String</b> field <b>description</b>
+that can be both modified and retrieved from outside of the class. Satisfy the
+following tests:<br/>
+<span class="CodeChar"><span style="color:black">val info = new
+Info("stuff", "Something")<br/>
+info.name is "stuff"<br/>
+info.description is "Something"<br/>
+info.description = "Something else"<br/>
+info.description is "Something else"</span></span></p>
+<p class="Exercise" id="Save">3.<span style='font:7.0pt "Times New Roman"'>   
+</span>Working from your solution to Exercise 2, modify the <b>Info</b> class
+to satisfy the following test:<span class="CodeChar"><span style="color:black"><br/>
+info.name = "This is the new name"<br/>
+info.name is "This is the new name"</span></span></p>
+<p class="Exercise" id="Save"><span class="CodeChar"><span style='font-family:"Caecilia LT Roman";
+color:black'>4.<span style='font:7.0pt "Times New Roman"'>    </span></span></span>Modify
+<b>SimpleTime</b> (from <span class="XrefChar"><span style="color:black">Named
+and Default Arguments</span></span>) to add a method <b>subtract</b> that
+subtracts one <b>SimpleTime</b> object from another. If the second time is
+greater than the first, just return 0’s. Satisfy the following tests:<br/>
+<span class="CodeChar"><span style="color:black">val t1 = new SimpleTime(10, 30)<br/>
+val t2 = new SimpleTime(9, 30)<br/>
+val st = t1.subtract(t2)<br/>
+st.hours is 1<br/>
+st.minutes is 0<br/>
+val st2 = new SimpleTime(10, 30).<br/>
+  subtract(new SimpleTime(9, 45))<br/>
+st2.hours is 0<br/>
+st2.minutes is 45<br/>
+val st3 = new SimpleTime(9, 30).<br/>
+  subtract(new SimpleTime(10, 0))<br/>
+st3.hours is 0<br/>
+st3.minutes is 0</span></span></p>
+<p class="Exercise" id="Save">5.<span style='font:7.0pt "Times New Roman"'>   
+</span>Modify your <b>SimpleTime</b> solution to use default arguments for
+minutes (see <span class="XrefChar"><span style="color:black">Named and Default
+Arguments</span></span>). Satisfy the following tests:<br/>
+<span class="CodeChar"><span style="color:black">val anotherT1 =<br/>
+  new SimpleTimeDefault(10, 30)<br/>
+val anotherT2 = new SimpleTimeDefault(9)<br/>
+val anotherST =<br/>
+  anotherT1.subtract(anotherT2)<br/>
+anotherST.hours is 1<br/>
+anotherST.minutes is 30<br/>
+val anotherST2 = new SimpleTimeDefault(10).<br/>
+  subtract(new SimpleTimeDefault(9, 45))<br/>
+anotherST2.hours is 0<br/>
+anotherST2.minutes is 15</span></span></p>
+<span id="Save" style='font-size:11.0pt;line-height:115%;font-family:"Caecilia LT Roman";
+color:black'><br clear="all" style="page-break-before:always"/>
+</span>
+<p class="MsoNormal" id="Save" style="margin-bottom:10.0pt"> </p>
+<p class="Exercise" id="Save" style="background-color:efefba;"><span class="CodeChar"><span style='font-family:"Caecilia LT Roman";
+color:black'>6.<span style='font:7.0pt "Times New Roman"'>    </span></span></span>Modify
+your solution for Exercise <span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-11T10:43">3 </del></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-11T10:43">5 </ins></span>to use
+an auxiliary constructor. Again, satisfy the following tests:<br/>
+<span class="CodeChar"><span style="color:black">val auxT1 = new
+SimpleTimeAux(10, 5)<br/>
+val auxT2 = new SimpleTimeAux(6)<br/>
+val auxST = auxT1.subtract(auxT2)<br/>
+auxST.hours is 4<br/>
+auxST.minutes is 5<br/>
+val auxST2= new SimpleTimeAux(12).subtract(<br/>
+  new SimpleTimeAux(9, 45))<br/>
+auxST2.hours is 2<br/>
+auxST2.minutes is 15</span></span></p>
+<p class="Exercise" id="Save">7.<span style='font:7.0pt "Times New Roman"'>   
+</span>Defaulting both hours and minutes in the previous exercise is
+problematic. Can you see why? Can you figure out how to use named arguments to
+solve this problem? Did you have to change any code? <br clear="all" style="page-break-before:always"/>
+</p>
+</div><div class="Chapter" id="Case Classes"><hr id="Save" style="height: 10px; border-width:0; background-color:gray;"/><h1 id="Save"><a name="_Toc348878427"></a><a name="_Toc348787790"></a><a name="_Toc348354842"></a><a name="_Toc346768608"></a><a name="_Toc346711682"><span style="font-family:Symbol;color:windowtext"><img alt="*" height="45" src="AtomicScalaV1.1_files/image002.jpg" width="45"/><span style='font:7.0pt "Times New Roman"'> 
+</span></span>Case Classes</a></h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p id="Save" style="background-image:url('AtomicScalaV1.1_files/image002.jpg');background-size:20px 20px; background-repeat:repeat-x;">.
+</p>
+<h2 id="Save">Exercises</h2>
+<p class="SolnsLink" id="Save">Solutions are available at <a href="http://www.AtomicScala.com"><b><span style="color:black;text-decoration:
+none">www.AtomicScala.com</span></b></a>.</p>
+<p class="Exercise" id="Save">1.<span style='font:7.0pt "Times New Roman"'>   
+</span>Create a <b>case class</b> to represent a <b>Person</b> in an address
+book, complete with <b>String</b>s for the name and a <b>String</b> for contact
+information. Satisfy the following tests:<br/>
+<span class="CodeChar"><span style="color:black">val p = Person("Jane",
+"Smile",<br/>
+"jane@smile.com")<br/>
+p.first is "Jane"<br/>
+p.last is "Smile"<br/>
+p.email is "jane@smile.com"</span></span></p>
+<p class="Exercise" id="Save">2.<span style='font:7.0pt "Times New Roman"'>   
+</span>Create some <b>Person</b> objects. Put the <b>Person</b> objects in a <b>Vector</b>.
+Satisfy the following tests:<br/>
+<span class="CodeChar"><span style="color:black">val people = Vector(<br/>
+Person("Jane","Smile","jane@smile.com"),<br/>
+Person("Ron","House","ron@house.com"),<br/>
+Person("Sally","Dove","sally@dove.com"))<br/>
+people(0) is<br/>
+"Person(Jane,Smile,jane@smile.com)"<br/>
+people(1) is<br/>
+"Person(Ron,House,ron@house.com)"<br/>
+people(2) is<br/>
+"Person(Sally,Dove,sally@dove.com)"</span></span></p>
+<p class="Exercise" id="Save"><span class="CodeChar"><span style='font-family:"Caecilia LT Roman";
+color:black'>3.<span style='font:7.0pt "Times New Roman"'>    </span></span></span>First,
+create a <b>case class</b> that represents a <b>Dog</b>, using a <b>String</b>
+for name and a <b>String</b> for breed. Then, create a <b>Vector</b> of <b>Dog</b>s.
+Satisfy the following tests:<br/>
+<span class="CodeChar"><span style="color:black">val dogs = Vector(<br/>
+    /* Insert Vector initialization */<br/>
+  )<br/>
+dogs(0) is "Dog(Fido,Golden Lab)"<br/>
+dogs(1) is "Dog(Ruff,Alaskan Malamute)"<br/>
+dogs(2) is "Dog(Fifi,Miniature Poodle)"</span></span></p>
+<p class="Exercise" id="Save"><span class="CodeChar"><span style='font-family:"Caecilia LT Roman";
+color:black'>4.<span style='font:7.0pt "Times New Roman"'>    </span></span></span>As
+in <span class="XrefChar"><span style="color:black">Class Exercises</span></span>,
+make a <b>case class</b> <b>Dimension</b> that has an integer field <b>height</b>
+and an integer field <b>width</b> that can be both retrieved and modified from
+outside of the class. Create and print an object of this class. How does this
+solution differ from your solution for Exercise 1 in <span class="XrefChar"><span style="color:black">Class Exercises</span></span>? Satisfy the following tests:<br/>
+<span class="CodeChar"><span style="color:black">val c = new Dimension(5,7)<br/>
+c.height is 5<br/>
+c.height = 10<br/>
+c.height is 10<br/>
+c.width = 19<br/>
+c.width is 19</span></span></p>
+<p class="Exercise" id="Save">5.<span style='font:7.0pt "Times New Roman"'>   
+</span>Modify your solution for Exercise 4, using one ordinary (<b>val</b>)
+argument for height and one <b>var</b> argument for width. Demonstrate that one
+is read-only and the other is modifiable.</p>
+<span id="Save" style='font-size:11.0pt;line-height:115%;font-family:"Caecilia LT Roman";
+color:black'><br clear="all" style="page-break-before:always"/>
+</span>
+<p class="MsoNormal" id="Save" style="margin-bottom:10.0pt"> </p>
+<p class="Exercise" id="Save" style="background-color:efefba;">6.<span style='font:7.0pt "Times New Roman"'>   
+</span>Can you use default arguments with <b>case class</b>es? Repeat Exercise <span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-11T10:56">3 </del></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-11T10:56">5 </ins></span>from
+<span class="XrefChar"><span style="color:black">Class Exercises</span></span> to
+find out. How does your solution differ, if at all? Satisfy the following
+tests:<br/>
+<span class="CodeChar"><span style="color:black">val anotherT1 =<br/>
+  new SimpleTimeDefault(10, 30)<br/>
+val anotherT2 = new SimpleTimeDefault(9)<br/>
+val anotherST =<br/>
+  anotherT1.subtract(anotherT2)<br/>
+anotherST.hours is 1<br/>
+anotherST.minutes is 30<br/>
+val anotherST2 =<br/>
+  new SimpleTimeDefault(10).subtract(<br/>
+  new SimpleTimeDefault(9, 45))<br/>
+anotherST2.hours is 0<br/>
+anotherST2.minutes is 15</span></span></p>
+<p class="MsoNormal" id="Save"> </p>
+<span id="Save" style='font-size:11.0pt;line-height:115%;font-family:"Caecilia LT Roman";
+color:black'><br clear="all" style="page-break-before:always"/>
+</span>
+<p class="MsoNormal" id="Save"> </p>
+</div><div class="Chapter" id="Functions as Objects"><hr id="Save" style="height: 10px; border-width:0; background-color:gray;"/><h1 id="Save"><a name="_Toc348878430"></a><a name="_Toc348787793"></a><a name="_Toc348354845"></a><a name="_Toc346768611"></a><a name="_Toc346711685"><span style="font-family:Symbol;color:windowtext"><img alt="*" height="45" src="AtomicScalaV1.1_files/image002.jpg" width="45"/><span style='font:7.0pt "Times New Roman"'> 
+</span></span>Functions as Objects</a></h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p id="Save" style="background-image:url('AtomicScalaV1.1_files/image002.jpg');background-size:20px 20px; background-repeat:repeat-x;">.
+</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">6 </span></span>  later1()</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">7</span></span>   later2()</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">Assigning an anonymous function to a variable name is
+convenient for testing. You can use an anonymous function anywhere you use a
+regular function, but if the anonymous function starts getting too complex it’s
+usually better to define a named function, for clarity, even if you’re only
+going to use it once.</p>
+<h2 id="Save">Exercises</h2>
+<p class="SolnsLink" id="Save">Solutions are available at <b>www.AtomicScala.com</b>.</p>
+<p class="Exercise" id="Save">1.<span style='font:7.0pt "Times New Roman"'>   
+</span>Modify <b>DisplayVectorWithAnonymous.scala</b> to store results in a <b>String</b>,
+as in <b>DisplayDuckTestable.scala</b>. Satisfy the following test:<span class="CodeChar"><span style="color:black"><br/>
+str is "1234"</span></span></p>
+<p class="Exercise" id="Save"><span class="CodeChar"><span style='font-family:"Caecilia LT Roman";
+color:black'>2.<span style='font:7.0pt "Times New Roman"'>    </span></span></span>Working
+from your solution to the exercise above, add a comma between each number.
+Satisfy the following test:<br/>
+<span class="CodeChar"><span style="color:black">str is "1,2,3,4,"</span></span></p>
+<p class="Exercise" id="Save">3.<span style='font:7.0pt "Times New Roman"'>   
+</span>Create an anonymous function that calculates age in “dog years” (by
+multiplying years by 7). Assign it to a <b>val</b> and then call your function.
+Satisfy the following test:<br/>
+<span class="CodeChar"><span style="color:black">val dogYears = // Your function
+here<br/>
+dogYears(10) is 70</span></span></p>
+<p class="Exercise" id="Save" style="background-color:efefba;"><span class="CodeChar"><span style='font-family:"Caecilia LT Roman";
+color:black'>4.<span style='font:7.0pt "Times New Roman"'>    </span></span></span>Create
+a <b>Vector</b> and append the result of <b>dogYears</b> to a <b>String</b> for
+each value in the <b>Vector</b>. Satisfy the following test:<br/>
+<span class="CodeChar"><span style="color:black"><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-10T13:23">val </del></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-10T13:23">var </ins></span>s
+= ""<br/>
+val v = Vector(1, 5, 7, 8)<br/>
+v.foreach(/* Fill this in */)<br/>
+s is "7 35 49 56 "</span></span></p>
+<p class="Exercise" id="Save" style="background-color:efefba;"><span class="CodeChar"><span style='font-family:"Caecilia LT Roman";
+color:black'>5.<span style='font:7.0pt "Times New Roman"'>    </span></span></span>Repeat
+Exercise 2 without using the <b>dogYears</b> method:<br/>
+<span class="CodeChar"><span style="color:black"><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-10T13:23">val </del></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-10T13:23">var </ins></span>s
+= ""<br/>
+val v = Vector(1, 5, 7, 8)<br/>
+v.foreach(/* Fill this in */)<br/>
+s is "7 35 49 56 "</span></span></p>
+<p class="Exercise" id="Save"><span class="CodeChar"><span style='font-family:"Caecilia LT Roman";
+color:black'>6.<span style='font:7.0pt "Times New Roman"'>    </span></span></span>Create
+an anonymous function with three arguments (<b>temperate</b>, <b>low</b>, and <b>high</b>).
+The anonymous function will return <b>true</b> if the temperature is between <b>high</b>
+and <b>low</b>, and <b>false</b> otherwise. Assign the anonymous function to a <b>def</b>
+and then call your function. Do you think that having three arguments is too
+many? Satisfy the following tests:<br/>
+<span class="CodeChar"><span style="color:black">between(70, 80, 90) is false<br/>
+between(70, 60, 90) is true</span></span></p>
+<p class="Exercise" id="Save" style="background-color:efefba;"><span class="CodeChar"><span style='font-family:"Caecilia LT Roman";
+color:black'>7.<span style='font:7.0pt "Times New Roman"'>    </span></span></span>Create
+an anonymous function to square a list of numbers. Call the function for every
+element in a <b>Vector</b>, using <b>foreach</b>. Satisfy the following test:<br/>
+<span class="CodeChar"><span style="color:black"><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-10T13:23">val </del></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-10T13:23">var </ins></span>s
+= ""<br/>
+val numbers = Vector(1, 2, 5, 3, 7)<br/>
+numbers.foreach(/* Fill this in */)<br/>
+s is "1 4 25 9 49 "</span></span></p>
+<p class="Exercise" id="Save">8.<span style='font:7.0pt "Times New Roman"'>   
+</span>Create an anonymous function and assign it to the name <b>pluralize</b>.
+It should construct the (simple) plural form of a word by just adding an “s.” Satisfy
+the following tests:<br/>
+<span class="CodeChar"><span style="color:black">pluralize("cat") is
+"cats"<br/>
+pluralize("dog") is "dogs"<br/>
+pluralize("silly") is "sillys"</span></span></p>
+<p class="Exercise" id="Save" style="background-color:efefba;">9.<span style='font:7.0pt "Times New Roman"'>   
+</span>Use <b>pluralize</b> from the previous exercise. Use <b>foreach</b> on a
+<b>Vector</b> of <b>String</b>s and print the plural form of each word. Satisfy
+the following test:<br/>
+<span class="CodeChar"><span style="color:black"><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-10T13:23">val </del></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-10T13:23">var </ins></span>s
+= ""<br/>
+val words = Vector("word", "cat", "animal")<br/>
+words.foreach(/* Fill this in */)<br/>
+s is "words cats animals "</span></span><br clear="all" style="page-break-before:always"/>
+</p>
+</div><div class="Chapter" id="Pattern Matching with Types"><hr id="Save" style="height: 10px; border-width:0; background-color:gray;"/><h1 id="Save"><a name="_Toc348878433"></a><a name="_Toc348787796"><span style="font-family:
+Symbol;color:windowtext"><img alt="*" height="45" src="AtomicScalaV1.1_files/image002.jpg" width="45"/><span style='font:7.0pt "Times New Roman"'> 
+</span></span>Pattern Matching with Types</a></h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p id="Save" style="background-image:url('AtomicScalaV1.1_files/image002.jpg');background-size:20px 20px; background-repeat:repeat-x;">.
+</p>
+<p class="MsoNormal" id="Save">The argument type for <b>acceptAnything</b> is something you
+haven’t seen before: <b>Any</b>. As the name implies, <b>Any</b> allows any
+type of argument. If you want to pass a variety of types to a method and they
+have nothing in common, <b>Any</b> solves the problem.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">The <b>match</b> expression looks for <b>String</b>, <b>Int</b>,
+or our own type <b>Person </b>and returns an appropriate message for each. Notice
+how the value declaration (<b>s:String</b>, <b>i:Int</b>, and <b>p:Person</b>)
+provides the resulting value in the expression to the right of the <b>=&gt;</b>.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">Line 7 restricts the match to more than just the type by
+using an <b>if</b> test on the value.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">Remember from <span class="XrefChar"><span style="color:black">Pattern
+Matching</span></span> that the underscore acts as a wildcard, matching
+anything without capturing the matched object into a value.</p>
+<h2 id="Save">Exercises</h2>
+<p class="SolnsLink" id="Save">Solutions are available at <b>www.AtomicScala.com</b>.</p>
+<p class="Exercise" id="Save" style="background-color:efefba;">1.<span style='font:7.0pt "Times New Roman"'>   
+</span>Create a method <b>plus1</b> that pluralizes a <b>String</b>, adds 1 to
+an <b>Int</b>, and adds “+ guest” to a <b>Person</b>. Satisfy the following
+tests:<br/>
+<span class="CodeChar"><span style="color:black">plus1("car") is
+"cars"<br/>
+plus1(67) is 68<br/>
+plus1(Person("Joanna")) is<span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-11T08:41"><br/>
+  </ins></span><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-11T08:41"> </del></span>"<span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-11T08:40">Person(Joanna)</ins></span><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-11T08:40">Joanna</del></span>
++ guest"</span></span></p>
+<p class="Exercise" id="Save"><span class="CodeChar"><span style='font-family:"Caecilia LT Roman";
+color:black'>2.<span style='font:7.0pt "Times New Roman"'>    </span></span></span>Create
+a method <b>convertToSize</b> that converts a <b>String</b> to its length, uses
+<b>Int</b> and <b>Double</b> directly, and converts a <b>Person</b> to 1.
+Return 0 if you don’t have a matching type. What was the return type of your method?
+Satisfy the following tests:<br/>
+<span class="CodeChar"><span style="color:black">convertToSize(45) is 45<br/>
+convertToSize("car") is 3<br/>
+convertToSize("truck") is 5<br/>
+convertToSize(Person("Joanna")) is 1<br/>
+convertToSize(45.6F) is 45.6F<br/>
+convertToSize(Vector(1, 2, 3)) is 0</span></span></p>
+<p class="Exercise" id="Save"><span class="CodeChar"><span style='font-family:"Caecilia LT Roman";
+color:black'>3.<span style='font:7.0pt "Times New Roman"'>    </span></span></span>Modify
+<b>convertToSize</b> from the previous exercise so that it returns an <b>Int</b>.
+Use the <b>scala.math.round</b> method to round the <b>Double</b> first. Did
+you need to declare the return type? Do you see an advantage to doing so?
+Satisfy the following tests:<br/>
+<span class="CodeChar"><span style="color:black">convertToSize2(45) is 45<br/>
+convertToSize2("car") is 3<br/>
+convertToSize2("truck") is 5<br/>
+convertToSize2(Person("Joanna")) is 1<br/>
+convertToSize2(45.6F) is 46<br/>
+convertToSize2(Vector(1, 2, 3)) is 0</span></span></p>
+<p class="Exercise" id="Save"><span class="CodeChar"><span style='font-family:"Caecilia LT Roman";
+color:black'>4.<span style='font:7.0pt "Times New Roman"'>    </span></span></span>Create
+a new method <b>quantify</b> to return “small” if the argument is less than
+100, “medium” if the argument is between 100 and 1000, and “large” if the argument
+is greater than 1000. Support both <b>Double</b>s and <b>Int</b>s. Satisfy the
+following tests:<br/>
+<span class="CodeChar"><span style="color:black">quantify(100) is
+"medium"<br/>
+quantify(20.56) is "small"<br/>
+quantify(100000) is "large"<br/>
+quantify(-15999) is "small"</span></span></p>
+<p class="Exercise" id="Save"><span class="CodeChar"><span style='font-family:"Caecilia LT Roman";
+color:black'>5.<span style='font:7.0pt "Times New Roman"'>    </span></span></span>In
+<span class="XrefChar"><span style="color:black">Pattern Matching</span></span>,
+you did an exercise that checked the forecast, based on sunniness. We tested
+using discrete values. Revisit that exercise with ranges of values. Create a
+method <b>forecast</b> that represents the percentage of cloudiness, and use it
+to produce a “weather forecast” string such as “Sunny” (100), “Mostly Sunny”
+(80), “Partly Sunny” (50), “Mostly Cloudy” (20), and “Cloudy” (0). Satisfy the
+following tests:<br/>
+<span class="CodeChar"><span style="color:black">forecast(100) is
+"Sunny"<br/>
+forecast(81) is "Sunny"<br/>
+forecast(80) is "Mostly Sunny"<br/>
+forecast(51) is "Mostly Sunny"<br/>
+forecast(50) is "Partly Sunny"<br/>
+forecast(21) is "Partly Sunny"<br/>
+forecast(20) is "Mostly Cloudy"<br/>
+forecast(1) is "Mostly Cloudy"<br/>
+forecast(0) is "Cloudy"<br/>
+forecast(-1) is "Unknown"</span></span></p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save"> </p>
+<span id="Save" style='font-size:11.0pt;line-height:115%;font-family:"Caecilia LT Roman";
+color:black'><br clear="all" style="page-break-before:always"/>
+</span>
+<p class="MsoNormal" id="Save"> </p>
+</div><div class="Chapter" id="Error Handling with Exceptions"><hr id="Save" style="height: 10px; border-width:0; background-color:gray;"/><h1 id="Save"><a name="_Toc348878465"></a><a name="_Toc348787828"></a><a name="_Toc348354880"></a><a name="_Toc346768645"></a><a name="_Toc346711719"><span style="font-family:Symbol;color:windowtext"><img alt="*" height="45" src="AtomicScalaV1.1_files/image002.jpg" width="45"/><span style='font:7.0pt "Times New Roman"'> 
+</span></span>Error Handling with Exceptions</a></h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p id="Save" style="background-image:url('AtomicScalaV1.1_files/image002.jpg');background-size:20px 20px; background-repeat:repeat-x;">.
+</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">Every time you call <b>toss</b>, you must <b>catch</b> the
+exceptions it emits if those exceptions are germane to the use of the result
+(you can let them “bubble up” to be caught elsewhere if they are not).</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">Exceptions are essential for interacting with Java
+libraries, because Java uses exceptions for everything – both exceptional
+conditions and ordinary errors. For this reason, much of your exception code
+will occur when using Java libraries rather than dealing with truly exceptional
+conditions. In the next atom, you’ll see an example that captures exceptions
+from a Java library.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">Although Scala includes language support for exception
+handling, you’ll see in subsequent atoms that it tends to emphasize other forms
+of error handling and reserves exceptions for situations where you really don’t
+know what else to do. Indeed, it’s important to understand that there are at
+least two kinds of error conditions: expected and exceptional, and that you
+need to respond to these conditions in different ways. If you treat every error
+condition as an exception, your code will get very messy indeed.</p>
+<h2 id="Save">Exercises</h2>
+<p class="SolnsLink" id="Save">Solutions are available at <b>www.AtomicScala.com</b>.</p>
+<p class="Exercise" id="Save">1.<span style='font:7.0pt "Times New Roman"'>   
+</span>Create a method that throws an object of class <b>Exception</b> inside a
+<b>try</b> block. Pass the constructor for <b>Exception</b> a <b>String</b>
+argument. Catch the exception inside a <b>catch</b> clause and print the <b>String</b>
+argument.</p>
+<p class="Exercise" id="Save" style="background-color:efefba;">2.<span style='font:7.0pt "Times New Roman"'>   
+</span>Create a class with a simple method <b>f</b>. Create a <b>var</b> of
+that class and initialize it to<span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-11T08:44"> the special pre-defined value</ins></span> <b>null</b><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-11T08:44">,
+which means “nothing</ins></span>.<span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-11T08:44">”</ins></span> Try to
+call <b>f</b> using this <b>var</b>. Now wrap the call in a <b>try-catch</b>
+clause to catch the exception.</p>
+<p class="Exercise" id="Save">3.<span style='font:7.0pt "Times New Roman"'>   
+</span>Create a <b>Vector</b> containing some elements. Try to index outside
+the range of that <b>Vector</b>. Now write code to catch the exception.</p>
+<p class="Exercise" id="Save">4.<span style='font:7.0pt "Times New Roman"'>   
+</span>Inherit your own subclass of <b>Exception</b>. Write a constructor for
+this class that takes a <b>String</b> argument and stores it inside the base-class
+<b>Exception</b> object. Write a method that displays the stored <b>String</b>.
+Create a <b>try-catch</b> clause to test your new exception class.</p>
+<p class="Exercise" id="Save">5.<span style='font:7.0pt "Times New Roman"'>   
+</span>Create three new subtypes of <b>Exception</b>. Write a method that
+throws all three. In another method, call the first method but only use a
+single catch clause that will catch all three types of exception.</p>
+<p class="Exercise" id="Save">6.<span style='font:7.0pt "Times New Roman"'>   
+</span>Create a class with two methods, <b>f</b> and <b>g</b>. In <b>g</b>,
+throw a new type of exception that you define. In <b>f</b>, call <b>g</b>,
+catch its exception and, in the <b>catch</b> clause, throw a different
+exception (of a second type that you define). Test your code.</p>
+<p class="Exercise" id="Save">7.<span style='font:7.0pt "Times New Roman"'>   
+</span>Demonstrate that a derived-class constructor cannot catch exceptions
+thrown by its base-class constructor.</p>
+<p class="Exercise" id="Save">8.<span style='font:7.0pt "Times New Roman"'>   
+</span>Create a class called <b>FailingConstructor</b> with a constructor that
+might fail partway through the construction process and throw an exception. In
+another method, write code that properly guards against this failure.</p>
+<p class="Exercise" id="Save" style="background-color:efefba;">9.<span style='font:7.0pt "Times New Roman"'>   
+</span>Create a three-level inheritance hierarchy of exceptions. Now create a
+base class <b>A</b> with a method <b>f</b> that throws the exception at the
+base of your hierarchy. Inherit <b>B</b> from <b>A</b> and override <b>f</b> so
+it throws the exception at level two of your hierarchy. Repeat by inheriting
+class <b>C</b> from <b>B</b>. <span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-11T08:58">In main, c</del></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-11T08:58">C</ins></span>reate a <b>C</b>
+and <span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-11T08:59">upcast </del></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-11T08:59">assign </ins></span>it
+to<span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-11T08:59"> an</ins></span> <b>A</b><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-11T08:59"> (this is called
+“upcasting”)</ins></span>, then call <b>f</b>.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoListParagraph" id="Save" style="margin-left:.75in;text-indent:0in"> </p>
+<p class="MsoNormal" id="Save"> </p>
+<span id="Save" style='font-size:11.0pt;line-height:115%;font-family:"Caecilia LT Roman";
+color:black'><br clear="all" style="page-break-before:always"/>
+</span>
+<p class="MsoNormal" id="Save"> </p>
+</div><div class="Chapter" id="Constructors &amp; Exceptions"><hr id="Save" style="height: 10px; border-width:0; background-color:gray;"/><h1 id="Save"><a name="_Toc348878466"></a><a name="_Toc348787829"></a><a name="_Toc348354881"></a><a name="_Toc346768646"></a><a name="_Toc346711720"><span style="font-family:Symbol;color:windowtext"><img alt="*" height="45" src="AtomicScalaV1.1_files/image002.jpg" width="45"/><span style='font:7.0pt "Times New Roman"'> 
+</span></span>Constructors &amp; Exceptions</a></h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p id="Save" style="background-image:url('AtomicScalaV1.1_files/image002.jpg');background-size:20px 20px; background-repeat:repeat-x;">.
+</p>
+<p class="MsoNormal" id="Save">We’ll revisit this example in later atoms, so we create a
+reusable test. The argument to <b>CodeListingTester</b> is any function or
+method that takes a <b>String</b> (the name of the file) and produces an <b>IndexedSeq[String]</b>.
+We use <b>IndexedSeq[String]</b> instead of specifying a <b>Codelisting</b>
+because it makes the test more flexible. Each test uses <b>makeList</b> to
+create the object to be tested:</p>
+<p class="MsoNormal" id="Save"> </p>
+<span class="CodeNumber" id="Save"><span style="font-size:9.0pt;line-height:115%"><br clear="all" style="page-break-before:always"/>
+</span></span>
+<p class="MsoNormal" id="Save" style="margin-bottom:10.0pt"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:115%"> </span></span></p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">1</span></span>   // CodeListingTester.scala</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">2</span></span>   package codelistingtester</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">3</span></span>   import com.atomicscala.AtomicTest._</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">4   </span></span></p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">5 </span></span>  class CodeListingTester(</p>
+<p class="Code" id="Save" style="background-color:efefba;"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">6</span></span>     makeList:<span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-11T08:48"> </del></span>String
+=&gt; IndexedSeq[String]) {</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">7   </span></span></p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">8 </span></span>    makeList("CodeListingTester.scala")(4) is</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">9</span></span>     "class CodeListingTester("</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">10  </span></span></p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">11 </span></span>   makeList("NotAFile.scala")(0) is</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">12</span></span>    "File Not Found: NotAFile.scala"</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">13  </span></span></p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">14 </span></span>   makeList("NotAScalaFile.txt")(0) is</p><p id="Save" style="background-image:url('AtomicScalaV1.1_files/image002.jpg');background-size:20px 20px; background-repeat:repeat-x;">.
+</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">15</span></span>    "NotAScalaFile.txt " +</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">16</span></span>    "doesn't end with '.scala'"</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">17  </span></span></p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">18 </span></span>   makeList(null)(0) is</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">19</span></span>    "Error: Null file name"</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">20  </span></span></p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">21 </span></span> }</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">The result of creating a <b>CodeListing</b> object always
+looks like a <b>Vector</b>, which we can index (remember indexing starts at 0).
+For example, line 8 selects element 4.</p>
+<p class="MsoNormal" id="Save" style="background-color:efefba;"><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-11T08:53"> </ins></span></p>
+<p class="MsoNormal" id="Save" style="background-color:efefba;"><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-11T08:53">The <b>null</b> on line 18 is the keyword </ins></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-11T08:54">to
+indicate “nothing.”</ins></span></p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">The resulting test code is minimal:</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">1</span></span>   // CodeListingTest.scala</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">2</span></span>   import codelistingtester._</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">3</span></span>   import codelisting._</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">4</span></span>   new CodeListingTester(CodeListing.apply)</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">The only things we must change from one test to the next is
+the <b>import</b> on line 3 and the <b>makeList</b> argument, as you’ll see
+when we create different versions of <b>CodeListing</b> in subsequent atoms.</p>
+
+
+
+
+
+
+
+
+</div><div class="Chapter" id="Handling Non-Values with Option"><hr id="Save" style="height: 10px; border-width:0; background-color:gray;"/><h1 id="Save"><a name="_Toc348878468"></a><a name="_Toc348787831"></a><a name="_Toc348354883"></a><a name="_Toc346768648"></a><a name="_Toc346711722"><span style="font-family:Symbol;color:windowtext"><img alt="*" height="45" src="AtomicScalaV1.1_files/image002.jpg" width="45"/><span style='font:7.0pt "Times New Roman"'> 
+</span></span>Handling Non-Values with Option</a></h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p id="Save" style="background-image:url('AtomicScalaV1.1_files/image002.jpg');background-size:20px 20px; background-repeat:repeat-x;">.
+</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">12 </span></span> f(Some("Hi")) is Some("HiHi")</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">13</span></span>  f(None) is None</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">14  </span></span></p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">15 </span></span> Option(null) is None</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">Line 4 uses <b>foreach</b> for a side-effect operation (<b>foreach</b>
+doesn’t produce a result). On line 6 we pass a <b>Some</b> and this generates
+output. You can also hand a value to <b>Option</b> as on line 7 and this also
+produces a <b>Some</b>. If you hand it a <b>None</b>, though, it doesn’t do
+anything, not even print a blank line. The argument of <b>foreach</b> is not
+executed at all.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">On lines 10-13 we see similar behavior for <b>map</b>,
+except that a result is generated from the <b>map</b> operation, and wrapped in
+an <b>Option</b>. Note that <b>map</b> automatically extracts the contents of a
+<b>Some</b> before applying its argument.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save" style="background-color:efefba;">Line 15 <span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-11T08:56">introduces </del></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-11T08:56">uses </ins></span>the <b>null</b>
+keyword, a wart we inherit from Java. In Java, <b>null</b> is like our <b>None</b>
+<i>except</i> you must constantly check for <b>null</b> and it tends to hide,
+only to blow up when you least expect it. Conveniently, whenever <b>Option</b>
+sees a <b>null</b> it converts it to a <b>None</b>, so when you use a Java
+library that can produce a <b>null</b>, just wrap any calls in <b>Option</b>.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">While <b>Left</b> and <b>Right</b> have no particular
+meaning, <b>Some</b> and <b>None</b> are biased, and operations can take
+advantage of that bias. Here’s a further example showing <b>foreach</b> and <b>map</b>
+ignoring <b>None</b> values. We chain operations together and everything still
+works without fail:</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">1</span></span>   // OptionChaining.scala</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">2</span></span>   import com.atomicscala.AtomicTest._</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">3   </span></span></p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">4 </span></span>  def f(n:Int, div:Int) =</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">5</span></span>     if(n &lt; div || div == 0)</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">6</span></span>       None</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">7</span></span>     else</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div><div class="Chapter" id="Copyright"><hr id="Save" style="height: 10px; border-width:0; background-color:gray;"/><h1 id="Save"><a name="_Toc348878478"></a><a name="_Toc348787841"></a><a name="_Toc348354893"></a><a name="_Toc346768658"></a><a name="_Toc346711732"><span style="font-family:Symbol;color:windowtext"><img alt="*" height="45" src="AtomicScalaV1.1_files/image002.jpg" width="45"/><span style='font:7.0pt "Times New Roman"'> 
+</span></span>Copyright</a></h1><p id="Save" style="background-image:url('AtomicScalaV1.1_files/image002.jpg');background-size:20px 20px; background-repeat:repeat-x;">.
+</p>
+<p class="MsoNormal" id="Save" style="background-color:efefba;">Copyright ©2013 by Bruce Eckel, President, MindView, LLC.,
+and Dianne Marsh, <span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-07T11:02">Director of Engineering for Cloud Tools, Netflix</ins></span><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-07T11:02">President,
+SRT Solutions</del></span>.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">All rights reserved. Printed in the United States of
+America. This publication is protected by copyright, and permission must be
+obtained from the publisher prior to any prohibited reproduction, storage in a
+retrieval system, or transmission in any form or by any means, electronic,
+mechanical, photocopying, recording, or likewise. For information regarding
+permissions, see <b>AtomicScala.com</b>.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">Created in the United States in Crested Butte, Colorado and
+Ann Arbor, Michigan.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">ISBN 978-0-9818725-1-3</p>
+<p class="MsoNormal" id="Save">Text printed in the United States</p>
+<p class="MsoNormal" id="Save" style="background-color:efefba;">First printing<span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-13T08:31"> (Version 1.0)</ins></span>,
+<span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-05T09:49">January
+</del></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-05T09:49">March </ins></span>2013</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">Front and back cover illustrations by John Lucas.</p>
+<p class="MsoNormal" id="Save">Cover and interior design by Daniel Will-Harris,
+www.will-harris.com </p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">Many of the designations used by manufacturers and sellers
+to distinguish their products are claimed as trademarks. Where those
+designations appear in this book, and the publisher was aware of a trademark
+claim, the designations have been printed with initial capital letters or in
+all capitals.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save" style="background-color:efefba;">Scala is a trademark of the Ecole Polytechnique <span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-05T09:39">Fédérale</ins></span><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-05T09:39">Federale</del></span>
+(EPF) <span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-05T09:38">du </del></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-05T09:38">de </ins></span>Lausanne,
+Lausanne, Switzerland. Java is a trademark or registered trademark of Oracle,
+Inc. in the US and other countries. Windows is a registered trademark of
+Microsoft Corporation in the United States and other countries. All other
+product names and company names mentioned herein are the property of their
+respective owners.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">The authors and publisher have taken care in the preparation
+of this book, but make no expressed or implied warranty of any kind and assume
+no responsibility for errors or omissions. No liability is assumed for
+incidental or consequential damages in connection with or arising out of the
+use of the information or programs contained herein.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p align="center" class="MsoNormalCxSpMiddle" id="Save" style="text-align:center;line-height:
+normal"><span style="font-size:24.0pt;font-family:DicotBold">Visit us at</span></p>
+<p align="center" class="MsoNormal" id="Save" style="text-align:center;line-height:24.0pt"><b><span style="font-size:24.0pt;font-family:DicotBold">AtomicScala.com</span></b></p>
+<span id="Save" style='font-size:11.0pt;line-height:115%;font-family:"Caecilia LT Roman";
+color:black'><br clear="all" style="page-break-before:always"/>
+</span>
+<p class="MsoNormal" id="Save"><span style="font-size:24.0pt;line-height:115%;font-family:
+DicotBold;letter-spacing:.4pt"> </span></p>
+</div></div>
+<span style='font-size:11.0pt;line-height:115%;font-family:"Caecilia LT Roman";
+color:black'><br clear="all" style="page-break-before:auto"/>
+</span>
+
+<span style='font-size:11.0pt;line-height:115%;font-family:"Caecilia LT Roman";
+color:black'><br clear="all" style="page-break-before:auto"/>
+</span>
+
+</body>
+</html>
