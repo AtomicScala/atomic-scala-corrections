@@ -914,12 +914,12 @@ Engineering for Cloud Tools at Netflix. Previously, she co-founded and ran SRT
 Solutions, a custom software development firm, before selling the company in
 2013. Her expertise in software programming and technology includes
 manufacturing, genomics decision support and real-time processing applications.
-Dianne started her professional career using C and has enjoyed many languages
-since then, including C++, Java, and C#, and is currently having a lot of fun
-using Scala. Dianne helped organize CodeMash (www.codemash.org), an
-all-volunteer developer conference bringing together programmers of various
-programming languages to learn from one another, and has been a board member of
-the Ann Arbor Hands</ins></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-10T10:21">-O</ins></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-07T06:23">n
+Dianne started her professional career using C and has </ins></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-14T10:23">since
+</ins></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-07T06:23">enjoyed languages including C++, Java, and C#, and is
+currently having a lot of fun using Scala. Dianne helped organize CodeMash
+(www.codemash.org), an all-volunteer developer conference bringing together
+programmers of various languages to learn from one another, and has been a
+board member of the Ann Arbor Hands</ins></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-10T10:21">-O</ins></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-07T06:23">n
 Museum. She is active with local user groups and hosts several. She earned her
 Master of Science degree in computer science from Michigan Technological
 University. She's married to her best friend, has two fun young children and
@@ -1425,55 +1425,108 @@ test and some console output.</p>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<p id="Save" style="background-image:url('AtomicScalaV1.1_files/image002.jpg');background-size:20px 20px; background-repeat:repeat-x;">.
+</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">1</span></span>   // TDDFail.scala</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">2</span></span>   import com.atomicscala.AtomicTest._</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">3   </span></span></p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">4</span></span>   calculateBMI(160, 68) is "Normal weight"</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">5</span></span>   calculateBMI(100, 68) is "Underweight"</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">6</span></span>   calculateBMI(200, 68) is "Overweight"</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">7   </span></span></p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">8</span></span>   def calculateBMI(lbs: Int,</p>
+<p class="Code" id="Save" style="background-color:efefba;"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">9</span></span>     height: Int)<span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-14T05:56">:String</ins></span> = <span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-13T13:31">{ </ins></span>"Normal
+weight"<span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-13T13:31"> }</ins></span></p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">Only the first test passes. Next we add code to determine
+which weights are in which categories:</p><p id="Save" style="background-image:url('AtomicScalaV1.1_files/image002.jpg');background-size:20px 20px; background-repeat:repeat-x;">.
+</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">1</span></span>   // TDDStillFails.scala</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">2</span></span>   import com.atomicscala.AtomicTest._</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">3   </span></span></p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">4</span></span>   calculateBMI(160, 68) is "Normal weight"</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">5</span></span>   calculateBMI(100, 68) is "Underweight"</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">6</span></span>   calculateBMI(200, 68) is "Overweight"</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">7   </span></span></p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">8</span></span>   def calculateBMI(lbs:Int,</p>
+<p class="Code" id="Save" style="background-color:efefba;"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%"><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:00">9</ins></span></span></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:00">     </ins></span><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:00"> </del></span>height:Int)<span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-14T05:59">:String</ins></span>
+= {</p>
+<p class="Code" id="Save" style="background-color:efefba;"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%"><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:01">9</del></span></span></span><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:01">     </del></span><span class="CodeNumber"><span style="font-size:9.0pt;line-height:115%"><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:01">10</ins></span></span></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:01">    </ins></span>val
+bmi = lbs / (height*height) * 703.07</p>
+<p class="Code" id="Save" style="background-color:efefba;"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%"><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:01">10</del></span></span></span><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:01">    </del></span><span class="CodeNumber"><span style="font-size:9.0pt;line-height:115%"><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:01">11</ins></span></span></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:01">    </ins></span>if
+(bmi &lt; 18.5) "Underweight"</p>
+<p class="Code" id="Save" style="background-color:efefba;"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%"><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:01">11</del></span></span></span><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:01">    </del></span><span class="CodeNumber"><span style="font-size:9.0pt;line-height:115%"><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:01">12</ins></span></span></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:01">    </ins></span>else
+if (bmi &lt; 25) "Normal weight"</p>
+<p class="Code" id="Save" style="background-color:efefba;"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%"><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:01">12</del></span></span></span><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:01">    </del></span><span class="CodeNumber"><span style="font-size:9.0pt;line-height:115%"><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:01">13</ins></span></span></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:01">    </ins></span>else
+"Overweight"</p>
+<p class="Code" id="Save" style="background-color:efefba;"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%"><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:01">13</del></span></span></span><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:01">  </del></span><span class="CodeNumber"><span style="font-size:9.0pt;line-height:115%"><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:01">14</ins></span></span></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:01">  </ins></span>}</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">Now <i>all</i> the tests fail because we’re using <b>Int</b>s
+instead of <b>Double</b>s, producing a zero result. The tests guide us to the
+fix:</p><p id="Save" style="background-image:url('AtomicScalaV1.1_files/image002.jpg');background-size:20px 20px; background-repeat:repeat-x;">.
+</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">1</span></span>   // TDDWorks.scala</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">2</span></span>   import com.atomicscala.AtomicTest._</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">3   </span></span></p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">4</span></span>   calculateBMI(160, 68) is "Normal weight"</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">5</span></span>   calculateBMI(100, 68) is "Underweight"</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">6</span></span>   calculateBMI(200, 68) is "Overweight"</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">7   </span></span></p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">8</span></span>   def calculateBMI(lbs:Double,</p>
+<p class="Code" id="Save" style="background-color:efefba;"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">9</span></span>     height:<span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:01"> </del></span>Double)<span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:01">:String</ins></span>
+= {</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">10</span></span>    val bmi = lbs / (height*height) * 703.07</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">11</span></span>    if (bmi &lt; 18.5) "Underweight"</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">12</span></span>    else if (bmi &lt; 25) "Normal weight"</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">13</span></span>    else "Overweight"</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">14</span></span>  }</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">You may choose to add additional tests to ensure that we
+have tested the boundary conditions completely.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">Wherever possible in the remaining exercises of this book,
+we include tests your code must pass. Feel free to test additional cases.</p>
+<h2 id="Save">Exercises</h2>
 
 
 
@@ -2315,6 +2368,79 @@ anotherST2.minutes is 15</span></span></p>
 color:black'><br clear="all" style="page-break-before:always"/>
 </span>
 <p class="MsoNormal" id="Save"> </p>
+</div><div class="Chapter" id="String Interpolation"><hr id="Save" style="height: 10px; border-width:0; background-color:gray;"/><h1 id="Save"><a name="_Toc348878428"></a><a name="_Toc348787791"></a><a name="_Toc348354843"></a><a name="_Toc346768609"></a><a name="_Toc346711683"><span style="font-family:Symbol;color:windowtext"><img alt="*" height="45" src="AtomicScalaV1.1_files/image002.jpg" width="45"/><span style='font:7.0pt "Times New Roman"'> 
+</span></span>String Interpolation</a></h1><p id="Save" style="background-image:url('AtomicScalaV1.1_files/image002.jpg');background-size:20px 20px; background-repeat:repeat-x;">.
+</p>
+<p class="MsoNormal" id="Save"><i>String interpolation</i> allows you to create strings
+containing formatted values. To produce this effect, put an ‘<b>s</b>’ in front
+of the string, and a ‘<b>$</b>’ before the identifier you want Scala to
+interpolate:</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">1</span></span>   // StringInterpolation.scala</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">2</span></span>   import com.atomicscala.AtomicTest._</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">3   </span></span></p>
+<p class="Code" id="Save" style="background-color:efefba;"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">4 </span></span>  def i(s:String, n:Int, d:Double):String =<span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:08"> {</ins></span></p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">5</span></span>     s"first: $s, second: $n, third: $d"</p>
+<p class="Code" id="Save" style="background-color:efefba;"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">6   </span></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:09">}</ins></span></p>
+<p class="Code" id="Save" style="background-color:efefba;"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%"><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:09">7</ins></span></span></span></p>
+<p class="Code" id="Save" style="background-color:efefba;"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%"><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:09">7 </del></span></span></span><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:09">  </del></span><span class="CodeNumber"><span style="font-size:9.0pt;line-height:115%"><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:09">8 </ins></span></span></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:09">  </ins></span>i("hi",
+11, 3.14) is</p>
+<p class="Code" id="Save" style="background-color:efefba;"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%"><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:09">8</del></span></span></span><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:09">   </del></span><span class="CodeNumber"><span style="font-size:9.0pt;line-height:115%"><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:09">9</ins></span></span></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:09">   </ins></span>"first:
+hi, second: 11, third: 3.14"</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save"> As you can see, any identifier preceded by a ‘<b>$</b>’ is
+converted to string form.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">You can even evaluate and convert an expression by placing
+it inside ‘<b>${}</b>’ (among other things, this is helpful for systems that
+generate web pages):</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">1</span></span>   // ExpressionInterpolation.scala</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">2</span></span>   import com.atomicscala.AtomicTest._</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">3   </span></span></p>
+<p class="Code" id="Save" style="background-color:efefba;"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">4 </span></span>  def f(n:Int):Int = <span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:17">{ </ins></span>n * 11<span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:17"> }</ins></span></p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">5   </span></span></p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">6 </span></span>  s"f(7) is ${f(7)}!" is "f(7) is
+77!"</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">The expressions can be complex, but it’s more readable to
+keep them simple.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">Interpolation also works with case classes:</p>
+<p class="MsoNormal" id="Save"> </p>
+<span class="CodeNumber" id="Save"><span style="font-size:9.0pt;line-height:115%"><br clear="all" style="page-break-before:always"/>
+</span></span>
+<p class="MsoNormal" id="Save" style="margin-bottom:10.0pt"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:115%"> </span></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div><div class="Chapter" id="Functions as Objects"><hr id="Save" style="height: 10px; border-width:0; background-color:gray;"/><h1 id="Save"><a name="_Toc348878430"></a><a name="_Toc348787793"></a><a name="_Toc348354845"></a><a name="_Toc346768611"></a><a name="_Toc346711685"><span style="font-family:Symbol;color:windowtext"><img alt="*" height="45" src="AtomicScalaV1.1_files/image002.jpg" width="45"/><span style='font:7.0pt "Times New Roman"'> 
 </span></span>Functions as Objects</a></h1>
 
@@ -2411,11 +2537,11 @@ color:black'><br clear="all" style="page-break-before:always"/>
 <p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
 115%">7</span></span>   later2()</p>
 <p class="MsoNormal" id="Save"> </p>
-<p class="MsoNormal" id="Save">Assigning an anonymous function to a variable name is
-convenient for testing. You can use an anonymous function anywhere you use a
-regular function, but if the anonymous function starts getting too complex it’s
-usually better to define a named function, for clarity, even if you’re only
-going to use it once.</p>
+<p class="MsoNormal" id="Save">Assigning an anonymous function to a variable name is convenient
+for testing. You can use an anonymous function anywhere you use a regular
+function, but if the anonymous function starts getting too complex it’s usually
+better to define a named function, for clarity, even if you’re only going to
+use it once.</p>
 <h2 id="Save">Exercises</h2>
 <p class="SolnsLink" id="Save">Solutions are available at <b>www.AtomicScala.com</b>.</p>
 <p class="Exercise" id="Save">1.<span style='font:7.0pt "Times New Roman"'>   
@@ -2473,8 +2599,7 @@ s is "1 4 25 9 49 "</span></span></p>
 </span>Create an anonymous function and assign it to the name <b>pluralize</b>.
 It should construct the (simple) plural form of a word by just adding an “s.” Satisfy
 the following tests:<br/>
-<span class="CodeChar"><span style="color:black">pluralize("cat") is
-"cats"<br/>
+<span class="CodeChar"><span style="color:black">pluralize("cat") is "cats"<br/>
 pluralize("dog") is "dogs"<br/>
 pluralize("silly") is "sillys"</span></span></p>
 <p class="Exercise" id="Save" style="background-color:efefba;">9.<span style='font:7.0pt "Times New Roman"'>   
@@ -2524,8 +2649,8 @@ type of argument. If you want to pass a variety of types to a method and they
 have nothing in common, <b>Any</b> solves the problem.</p>
 <p class="MsoNormal" id="Save"> </p>
 <p class="MsoNormal" id="Save">The <b>match</b> expression looks for <b>String</b>, <b>Int</b>,
-or our own type <b>Person </b>and returns an appropriate message for each. Notice
-how the value declaration (<b>s:String</b>, <b>i:Int</b>, and <b>p:Person</b>)
+or our own type <b>Person </b>and returns an appropriate message for each.
+Notice how the value declaration (<b>s:String</b>, <b>i:Int</b>, and <b>p:Person</b>)
 provides the resulting value in the expression to the right of the <b>=&gt;</b>.</p>
 <p class="MsoNormal" id="Save"> </p>
 <p class="MsoNormal" id="Save">Line 7 restricts the match to more than just the type by
@@ -2607,6 +2732,525 @@ forecast(-1) is "Unknown"</span></span></p>
 color:black'><br clear="all" style="page-break-before:always"/>
 </span>
 <p class="MsoNormal" id="Save"> </p>
+</div><div class="Chapter" id="Overriding Methods"><hr id="Save" style="height: 10px; border-width:0; background-color:gray;"/><h1 id="Save"><a name="_Toc348878444"></a><a name="_Toc348787807"></a><a name="_Toc348354859"></a><a name="_Toc346768625"></a><a name="_Toc346711699"><span style="font-family:Symbol;color:windowtext"><img alt="*" height="45" src="AtomicScalaV1.1_files/image002.jpg" width="45"/><span style='font:7.0pt "Times New Roman"'> 
+</span></span>Overriding Methods</a></h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p id="Save" style="background-image:url('AtomicScalaV1.1_files/image002.jpg');background-size:20px 20px; background-repeat:repeat-x;">.
+</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">19</span></span>  }</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">20  </span></span></p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">21 </span></span> class Chimpanzee extends GreatApe {</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">22</span></span>    override def call = "Yawp!"</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">23</span></span>    override def eat() = super.eat() * 3</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">24</span></span>    def jump = "Chimp jumps"</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">25</span></span>    val kind = "Common" // New field</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">26</span></span>  }</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">27  </span></span></p>
+<p class="Code" id="Save" style="background-color:efefba;"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">28 </span></span> def talk(ape:GreatApe)<span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:23">:String</del></span> =
+{</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">29</span></span>    // ape.run()  // Not an ape method</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">30</span></span>    // ape.jump // Nor this</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">31</span></span>    ape.climb(4)</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">32</span></span>    ape.call + ape.eat()</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">33</span></span>  }</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">34  </span></span></p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">35 </span></span> talk(new GreatApe) is "Hoo!9"</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">36</span></span>  talk(new Bonobo) is "Eep!22"</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">37</span></span>  talk(new Chimpanzee) is "Yawp!27"</p>
+<p class="MsoNormal" id="Save"> </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div><div class="Chapter" id="Traits"><hr id="Save" style="height: 10px; border-width:0; background-color:gray;"/><h1 id="Save"><a name="_Toc348878447"></a><a name="_Toc348787810"></a><a name="_Toc348354862"></a><a name="_Toc346768628"></a><a name="_Toc346711702"><span style="font-family:Symbol;color:windowtext"><img alt="*" height="45" src="AtomicScalaV1.1_files/image002.jpg" width="45"/><span style='font:7.0pt "Times New Roman"'> 
+</span></span>Traits</a></h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p id="Save" style="background-image:url('AtomicScalaV1.1_files/image002.jpg');background-size:20px 20px; background-repeat:repeat-x;">.
+</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">13</span></span>    with Hardness</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">Lines 9-10 create <b>Cloth</b> from the <b>Fabric</b> class
+using the <b>extends</b> keyword, and adds additional traits using <b>with</b>.
+A class can only inherit from a single concrete or <b>abstract</b> base class,
+but it can combine as many traits as you want. If there is no concrete or <b>abstract</b>
+base class, as on lines 12-13, you still start with the <b>extends</b> keyword
+for the first trait, followed by the <b>with</b> keyword for the remaining
+traits.</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">Like an abstract class, fields and methods in traits can
+have definitions or they can be left abstract:</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">1</span></span>   // TraitBodies.scala</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">2   </span></span></p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">3 </span></span>  trait AllAbstract {</p>
+<p class="Code" id="Save" style="background-color:efefba;"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">4</span></span>     def f(n:Int):<span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:24"> </del></span>Int</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">5</span></span>     val d:Double</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">6</span></span>   }</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">7   </span></span></p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">8 </span></span>  trait PartialAbstract {</p>
+<p class="Code" id="Save" style="background-color:efefba;"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">9</span></span>     def f(n:Int):<span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:25"> </del></span>Int</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">10</span></span>    val d:Double</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">11</span></span>    def g(s:String) = s"($s)"</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">12</span></span>    val j = 42</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">13</span></span>  }</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">14  </span></span></p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">15 </span></span> trait Concrete {</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">16</span></span>    def f(n:Int) = n * 11</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">17</span></span>    val d = 1.61803</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">18</span></span>  }</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div><div class="Chapter" id="Sequences"><hr id="Save" style="height: 10px; border-width:0; background-color:gray;"/><h1 id="Save"><a name="_Toc348878458"></a><a name="_Toc348787821"></a><a name="_Toc348354873"></a><a name="_Toc346768639"></a><a name="_Toc346711713"><span style="font-family:Symbol;color:windowtext"><img alt="*" height="45" src="AtomicScalaV1.1_files/image002.jpg" width="45"/><span style='font:7.0pt "Times New Roman"'> 
+</span></span>Sequences</a></h1>
+<p id="Save" style="background-image:url('AtomicScalaV1.1_files/image002.jpg');background-size:20px 20px; background-repeat:repeat-x;">.
+</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">We’ve only used the most basic functionality of <b>Vector</b>,
+placing objects in <b>Vector</b>s and stepping through them with <b>for</b>
+loops. However, <b>Vector</b> has many powerful built-in operations. Here are a
+number of the simpler ones, with explanations embedded in the code as comments.
+<b>Vector</b> and <b>List</b> are <b>Seq</b> containers and have identical
+operations, so the method <b>testSeq</b> works on both; note that <b>testSeq</b>
+is written to a specific sequence of values. Also, Scala allows us to call <b>testSeq</b>
+prior to the point in the file where it is defined:</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">1</span></span>   // SeqOperations.scala</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">2</span></span>   import com.atomicscala.AtomicTest._</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">3   </span></span></p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">4 </span></span>  testSeq(Vector(1, 7, 22, 11, 17))</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">5</span></span>   testSeq(List(1, 7, 22, 11, 17))</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">6   </span></span></p>
+<p class="Code" id="Save" style="background-color:efefba;"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">7 </span></span>  def testSeq(s:Seq[Int]) <span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:28">= </ins></span>{</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">8</span></span>     // Is there anything inside?</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">9</span></span>     s.isEmpty is false</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">10</span></span>    // How many elements inside?</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">11</span></span>    s.length is 5</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">12  </span></span></p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">13 </span></span>   // Appending to the end:</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">14</span></span>    s :+ 99 is Seq(1, 7, 22, 11, 17, 99)</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">15</span></span>    // Inserting at the beginning:</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">16</span></span>    47 +: s is Seq(47, 1, 7, 22, 11, 17)</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">17  </span></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div><div class="Chapter" id="Lists &amp; Recursion"><hr id="Save" style="height: 10px; border-width:0; background-color:gray;"/><h1 id="Save"><a name="_Toc348878459"></a><a name="_Toc348787822"></a><a name="_Toc348354874"></a><a name="_Toc346768640"></a><a name="_Toc346711714"><span style="font-family:Symbol;color:windowtext"><img alt="*" height="45" src="AtomicScalaV1.1_files/image002.jpg" width="45"/><span style='font:7.0pt "Times New Roman"'> 
+</span></span>Lists &amp; Recursion</a></h1><p id="Save" style="background-image:url('AtomicScalaV1.1_files/image002.jpg');background-size:20px 20px; background-repeat:repeat-x;">.
+</p>
+<p class="MsoNormal" id="Save">In the previous atom, every operation that <b>testSeq</b>
+performed on a <b>Vector</b> also works with a <b>List</b>. In almost all cases,
+you’ll want to choose <b>Vector</b> as your sequence container because it
+performs most of your operations in the most efficient manner. Sometimes Scala
+chooses a <b>List</b> instead. Here, for example, if we ask for a <b>Seq</b>, we get a <b>List</b>:</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="Code" id="Save">scala&gt; Seq(1,3,5,7)</p>
+<p class="Code" id="Save">res0: Seq[Int] = List(1, 3, 5, 7)</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save"><b>List</b>s are optimized for a special type of operation,
+called <i>recursion</i>. In recursion, you operate on the first element of the
+sequence, and then call the same method that you’re inside (<i>make a recursive
+call</i> or simply <i>recurse</i>), passing it the rest of the sequence – that
+is, the sequence minus the first element. The recursion ends when you run out
+of elements. Here’s a very simple example:</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">1</span></span>   // RecursivePrint.scala</p>
+<p class="Code" id="Save" style="background-color:efefba;"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">2</span></span>   def rPrint(s:Seq[Char])<span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:34">:Unit =</ins></span> {</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">3</span></span>     print(s.head)</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">4</span></span>     if(s.tail.nonEmpty)</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">5</span></span>       rPrint(s.tail) // Recursive call</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">6</span></span>   }</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">7   </span></span></p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">8 </span></span>  rPrint("Recursion")</p>
+<p class="Code" id="Save" style="background-color:efefba;"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%"><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:32">9</del></span></span></span><span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:32">   println</del></span></p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">The call to <b>head</b> returns the first element, and <b>tail</b>
+produces the rest of the sequence minus the first element. With each recursion,
+the sequence passed to <b>rPrint</b> gets smaller until <b>nonEmpty</b> becomes
+false when there’s nothing left, at which point the recursion ends. The string
+passed to <b>rPrint</b> on line 8 automatically becomes a <b>Seq</b>.</p>
+<p class="MsoNormal" id="Save" style="background-color:efefba;"><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:34">Note the explicit return type on line 2, which
+Scala requires for a recursive method.</ins></span></p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="MsoNormal" id="Save">Recursion is often used for calculations on a sequence. For
+example, when summing a sequence you can avoid a variable (<b>var</b>) by
+creating the sum piece-by-piece during the recursion. Here’s a recursive method
+that takes a list to sum and an integer to hold the sum:</p>
+<p class="MsoNormal" id="Save"> </p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">1</span></span>   // RecursiveSum.scala</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">2</span></span>   import com.atomicscala.AtomicTest._</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">3   </span></span></p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">4 </span></span>  def sumIt(toSum:List[Int], sum:Int= 0):Int=</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">5</span></span>     if(toSum.isEmpty)</p>
+<p class="Code" id="Save"><span class="CodeNumber"><span style="font-size:9.0pt;line-height:
+115%">6</span></span>       sum</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div><div class="Chapter" id="Error Handling with Exceptions"><hr id="Save" style="height: 10px; border-width:0; background-color:gray;"/><h1 id="Save"><a name="_Toc348878465"></a><a name="_Toc348787828"></a><a name="_Toc348354880"></a><a name="_Toc346768645"></a><a name="_Toc346711719"><span style="font-family:Symbol;color:windowtext"><img alt="*" height="45" src="AtomicScalaV1.1_files/image002.jpg" width="45"/><span style='font:7.0pt "Times New Roman"'> 
 </span></span>Error Handling with Exceptions</a></h1>
 
@@ -2750,8 +3394,8 @@ clause to catch the exception.</p>
 the range of that <b>Vector</b>. Now write code to catch the exception.</p>
 <p class="Exercise" id="Save">4.<span style='font:7.0pt "Times New Roman"'>   
 </span>Inherit your own subclass of <b>Exception</b>. Write a constructor for
-this class that takes a <b>String</b> argument and stores it inside the base-class
-<b>Exception</b> object. Write a method that displays the stored <b>String</b>.
+this class that takes a <b>String</b> argument and stores it inside the
+base-class <b>Exception</b> object. Write a method that displays the stored <b>String</b>.
 Create a <b>try-catch</b> clause to test your new exception class.</p>
 <p class="Exercise" id="Save">5.<span style='font:7.0pt "Times New Roman"'>   
 </span>Create three new subtypes of <b>Exception</b>. Write a method that
@@ -2776,8 +3420,8 @@ base of your hierarchy. Inherit <b>B</b> from <b>A</b> and override <b>f</b> so
 it throws the exception at level two of your hierarchy. Repeat by inheriting
 class <b>C</b> from <b>B</b>. <span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-11T08:58">In main, c</del></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-11T08:58">C</ins></span>reate a <b>C</b>
 and <span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-11T08:59">upcast </del></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-11T08:59">assign </ins></span>it
-to<span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-11T08:59"> an</ins></span> <b>A</b><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-11T08:59"> (this is called
-“upcasting”)</ins></span>, then call <b>f</b>.</p>
+to<span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-11T08:59"> an</ins></span> <b>A</b><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-11T08:59"> (this is called “upcasting”)</ins></span>,
+then call <b>f</b>.</p>
 <p class="MsoNormal" id="Save"> </p>
 <p class="MsoListParagraph" id="Save" style="margin-left:.75in;text-indent:0in"> </p>
 <p class="MsoNormal" id="Save"> </p>
@@ -3158,6 +3802,7 @@ Ann Arbor, Michigan.</p>
 <p class="MsoNormal" id="Save" style="background-color:efefba;">First printing<span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-13T08:31"> (Version 1.0)</ins></span>,
 <span class="msoDel"><del cite="mailto:Bruce%20Eckel" datetime="2013-09-05T09:49">January
 </del></span><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-05T09:49">March </ins></span>2013</p>
+<p class="MsoNormal" id="Save" style="background-color:efefba;"><span class="msoIns"><ins cite="mailto:Bruce%20Eckel" datetime="2013-09-14T06:15">Version 1.1, September 2013</ins></span></p>
 <p class="MsoNormal" id="Save"> </p>
 <p class="MsoNormal" id="Save">Front and back cover illustrations by John Lucas.</p>
 <p class="MsoNormal" id="Save">Cover and interior design by Daniel Will-Harris,
