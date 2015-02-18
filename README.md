@@ -8,3 +8,7 @@ press the "Download ZIP" button on the right.
 
 To report an issue, press the "Issues" button on the upper right, or go to:
 https://github.com/AtomicScala/corrections/issues
+
+----
+Notes for generation of ebooks:
+- Check PDF for blank pages, table of contents, search
