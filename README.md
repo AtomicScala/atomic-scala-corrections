@@ -12,3 +12,10 @@ https://github.com/AtomicScala/corrections/issues
 ----
 Notes for generation of ebooks:
 - Check PDF for blank pages, table of contents, search
+- iBook version: generate table of contents (test on iPad and nook)
+- Check that eBook URLs are live links
+
+---
+Consider Scala.pickling._ module in 2.11 for future example/exercise.
+Can create simple and useful example, see:
+http://typesafe.com/resources/video/welcome-to-scala-2-11 @ 12:50
