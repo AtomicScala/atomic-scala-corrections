@@ -11,6 +11,7 @@ https://github.com/AtomicScala/corrections/issues
 
 ----
 Notes for generation of ebooks:
+- re-extract code examples and recreate testall build scripts
 - Check PDF for blank pages, table of contents, search
 - iBook version: generate table of contents (test on iPad and nook)
 - Check that eBook URLs are live links
